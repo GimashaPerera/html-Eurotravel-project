@@ -1,114 +1,114 @@
-\<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Euo Travel - Package Reservation</title>
-<link rel="stylesheet" href="Reservation.css">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Euro Travel - Package Reservation</title>
+    <link rel="stylesheet" href="Reservation.css">
 </head>
+
 <body>
 
-<!-- Navbar -->
-<nav class="navbar">
-    <div class="nav-logo">Euo Travel</div>
-    <div class="nav-clock" id="navClock">00:00:00</div>
-    <button class="calc-btn" id="openCalc">Calculator 💻</button>
-</nav>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="nav-logo">Euro Travel</div>
+        <div class="nav-clock" id="navClock">00:00:00</div>
+        <button class="calc-btn" id="openCalc">Calculator</button>
+    </div>
 
-<!-- Background -->
-<div class="background">
-    <div class="bg-slide" style="background-image:url('images/img1.jpg')"></div>
-    <div class="bg-slide" style="background-image:url('images/img2.jpg')"></div>
-    <div class="bg-slide" style="background-image:url('images/img3.jpg')"></div>
-</div>
+    <!-- Background -->
+    <div class="background">
+        <div class="bg-slide" style="background-image:url('images/img1.jpg')"></div>
+        <div class="bg-slide" style="background-image:url('images/img2.jpg')"></div>
+        <div class="bg-slide" style="background-image:url('images/img3.jpg')"></div>
+    </div>
 
-<!-- Container -->
-<div class="container">
-    <h1>Package Reservation</h1>
-    <form class="reservation-form hover-glow" id="reservationForm">
-        <div class="form-row">
-            <div class="form-group">
-                <input type="text" id="name" placeholder=" " required>
-                <label for="name">Full Name</label>
+    <!-- Reservation Form -->
+    <div class="container">
+        <h1>Package Reservation</h1>
+        <form id="reservationForm">
+            <div>
+                <label for="name">Full Name</label><br>
+                <input type="text" id="name" required><br><br>
             </div>
-            <div class="form-group">
-                <input type="email" id="email" placeholder=" " required>
-                <label for="email">Email Address</label>
+
+            <div>
+                <label for="email">Email Address</label><br>
+                <input type="email" id="email" required><br><br>
             </div>
-        </div>
-        <div class="form-row">
-            <div class="form-group">
+
+            <div>
+                <label for="package">Select Package</label><br>
                 <select id="package" required>
                     <option value="" disabled selected>Choose Package</option>
                     <option value="700">Europe Explorer - 7 Days ($700/person)</option>
                     <option value="1200">Luxury Europe Cruise - 10 Days ($1200/person)</option>
                     <option value="900">Romantic Paris & Venice - 5 Days ($900/person)</option>
                     <option value="1000">Scandinavian Adventure - 8 Days ($1000/person)</option>
-                </select>
-                <label for="package">Select Package</label>
+                </select><br><br>
             </div>
-            <div class="form-group">
-                <input type="number" id="people" placeholder=" " min="1" required>
-                <label for="people">Number of People</label>
-            </div>
-        </div>
-        <div class="form-group">
-            <input type="date" id="date" placeholder=" " required>
-            <label for="date">Preferred Travel Date</label>
-        </div>
-        <div class="form-group">
-            <textarea id="notes" rows="4" placeholder=" "></textarea>
-            <label for="notes">Additional Notes</label>
-        </div>
-        <div class="submit-container">
-            <button type="submit" class="btn">Reserve Now</button>
-        </div>
-    </form>
-</div>
 
-<!-- Help Bot -->
-<div class="help-bot" id="helpBot">
-    <div class="bot-icon" id="botIcon">💬</div>
-    <div class="bot-chat" id="botChat">
-        <p>Hi! Need help with your booking? Ask me anything!</p>
-        <input type="text" placeholder="Type your question..." id="botInput">
-        <button id="botSend">Send</button>
+            <div>
+                <label for="people">Number of People</label><br>
+                <input type="number" id="people" min="1" required><br><br>
+            </div>
+
+            <div>
+                <label for="date">Preferred Travel Date</label><br>
+                <input type="date" id="date" required><br><br>
+            </div>
+
+            <div>
+                <label for="notes">Additional Notes</label><br>
+                <textarea id="notes" rows="4"></textarea><br><br>
+            </div>
+
+            <input type="submit" value="Reserve Now">
+        </form>
     </div>
-</div>
 
-<!-- Calculator Modal -->
-<div class="calc-modal" id="calcModal">
-    <div class="calc-content">
-        <span class="close-btn" id="closeCalc">&times;</span>
-        <h2>Calculator</h2>
-        <input type="text" id="calcScreen" readonly>
-        <div class="calc-buttons">
+    <!-- Help Bot -->
+    <div id="helpBot">
+        <div id="botIcon">💬</div>
+        <div id="botChat" style="display:none;">
+            <p>Hi! Need help with your booking? Ask me anything!</p>
+            <input type="text" id="botInput">
+            <button id="botSend">Send</button>
+        </div>
+    </div>
+
+    <!-- Calculator -->
+    <div id="calcModal" style="display:none;">
+        <div>
+            <span id="closeCalc">&times;</span>
+            <h2>Calculator</h2>
+            <input type="text" id="calcScreen" readonly><br>
             <button class="num">7</button>
             <button class="num">8</button>
             <button class="num">9</button>
-            <button class="op">/</button>
+            <button class="op">/</button><br>
 
             <button class="num">4</button>
             <button class="num">5</button>
             <button class="num">6</button>
-            <button class="op">*</button>
+            <button class="op">*</button><br>
 
             <button class="num">1</button>
             <button class="num">2</button>
             <button class="num">3</button>
-            <button class="op">-</button>
+            <button class="op">-</button><br>
 
             <button class="num">0</button>
             <button class="num">.</button>
             <button id="clear">C</button>
-            <button class="op">+</button>
+            <button class="op">+</button><br>
 
-            <button id="equals" style="grid-column: span 4;">=</button>
+            <button id="equals">=</button>
         </div>
     </div>
-</div>
 
-<script src="Reservation.js"></script>
+    <script src="Reservation.js"></script>
 </body>
+
 </html>

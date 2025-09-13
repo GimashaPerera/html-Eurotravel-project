@@ -1,56 +1,83 @@
 // ---------------- Clock ----------------
 function updateClock() {
-    const now = new Date();
-    let h = now.getHours().toString().padStart(2,'0');
-    let m = now.getMinutes().toString().padStart(2,'0');
-    let s = now.getSeconds().toString().padStart(2,'0');
-    document.getElementById('navClock').textContent = `${h}:${m}:${s}`;
+    var now = new Date();
+    var h = now.getHours();
+    var m = now.getMinutes();
+    var s = now.getSeconds();
+
+    // Add leading zero
+    if (h < 10) { h = "0" + h; }
+    if (m < 10) { m = "0" + m; }
+    if (s < 10) { s = "0" + s; }
+
+    document.getElementById('navClock').textContent = h + ":" + m + ":" + s;
 }
 setInterval(updateClock, 1000);
 updateClock();
 
 // ---------------- Background Slideshow ----------------
-const slides = document.querySelectorAll('.bg-slide');
-let currentSlide = 0;
-slides[currentSlide].classList.add('active');
-function nextSlide(){
-    slides[currentSlide].classList.remove('active');
-    currentSlide = (currentSlide+1)%slides.length;
-    slides[currentSlide].classList.add('active');
+var slides = document.getElementsByClassName('bg-slide');
+var currentSlide = 0;
+slides[currentSlide].className += " active";
+
+function nextSlide() {
+    slides[currentSlide].className = slides[currentSlide].className.replace(" active", "");
+    currentSlide++;
+    if (currentSlide >= slides.length) { currentSlide = 0; }
+    slides[currentSlide].className += " active";
 }
-setInterval(nextSlide,5000);
+setInterval(nextSlide, 5000);
 
 // ---------------- Help Bot ----------------
-const botIcon = document.getElementById('botIcon');
-const botChat = document.getElementById('botChat');
-botIcon.addEventListener('click',()=>{ 
-    botChat.style.display = botChat.style.display==='block'?'none':'block';
-});
+var botIcon = document.getElementById('botIcon');
+var botChat = document.getElementById('botChat');
+
+botIcon.onclick = function () {
+    if (botChat.style.display === "block") {
+        botChat.style.display = "none";
+    } else {
+        botChat.style.display = "block";
+    }
+};
 
 // ---------------- Calculator ----------------
-const calcModal = document.getElementById('calcModal');
-const openCalc = document.getElementById('openCalc');
-const closeCalc = document.getElementById('closeCalc');
-const calcScreen = document.getElementById('calcScreen');
-const calcButtons = document.querySelectorAll('.calc-buttons button');
-openCalc.addEventListener('click',()=>{calcModal.style.display='block';});
-closeCalc.addEventListener('click',()=>{calcModal.style.display='none';});
-window.addEventListener('click',(e)=>{if(e.target==calcModal) calcModal.style.display='none';});
-let currentInput='';
-calcButtons.forEach(btn=>{
-    btn.addEventListener('click',()=>{
-        if(btn.id==='clear'){currentInput='';}
-        else if(btn.id==='equals'){
-            try{currentInput=eval(currentInput);}catch{currentInput='Error';}
-        } else {currentInput+=btn.textContent;}
-        calcScreen.value=currentInput;
-    });
-});
+var calcModal = document.getElementById('calcModal');
+var openCalc = document.getElementById('openCalc');
+var closeCalc = document.getElementById('closeCalc');
+var calcScreen = document.getElementById('calcScreen');
+var calcButtons = document.querySelectorAll('.calc-buttons button');
+var currentInput = "";
+
+openCalc.onclick = function () { calcModal.style.display = "block"; };
+closeCalc.onclick = function () { calcModal.style.display = "none"; };
+
+window.onclick = function (e) {
+    if (e.target == calcModal) {
+        calcModal.style.display = "none";
+    }
+};
+
+for (var i = 0; i < calcButtons.length; i++) {
+    calcButtons[i].onclick = function () {
+        if (this.id === "clear") {
+            currentInput = "";
+        } else if (this.id === "equals") {
+            try {
+                currentInput = eval(currentInput);
+            } catch (err) {
+                currentInput = "Error";
+            }
+        } else {
+            currentInput += this.textContent;
+        }
+        calcScreen.value = currentInput;
+    }
+}
 
 // ---------------- Form Submit ----------------
-const form=document.getElementById('reservationForm');
-form.addEventListener('submit',(e)=>{
+var form = document.getElementById('reservationForm');
+form.onsubmit = function (e) {
     e.preventDefault();
-    alert('Reservation submitted successfully!');
+    alert("Reservation submitted successfully!");
     form.reset();
-});
+};

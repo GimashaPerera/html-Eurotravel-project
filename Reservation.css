@@ -1,111 +1,213 @@
 /* ---------------- Body & Background ---------------- */
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: Arial, sans-serif;
     margin: 0;
     color: #fff;
     min-height: 100vh;
+    background: #0A3D62;
 }
 
 /* Background slides */
 .background {
     position: fixed;
-    top:0; left:0;
-    width:100%; height:100%;
-    overflow:hidden;
-    z-index:-1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
 }
+
 .bg-slide {
-    position:absolute; top:0; left:0;
-    width:100%; height:100%;
-    background-size:cover;
-    background-position:center;
-    opacity:0;
-    transition: opacity 2s ease-in-out;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 2s;
 }
-.bg-slide.active { opacity:1; }
+
+.bg-slide.active {
+    opacity: 1;
+}
 
 /* ---------------- Navbar ---------------- */
-.navbar{
-    position:fixed; top:0; left:0; width:100%;
-    display:flex; justify-content:space-between; align-items:center;
-    background:rgba(10, 61, 98, 0.9);
-    padding:10px 15px; /* reduced padding */
-    box-shadow:0 0 20px #00f0ff66; z-index:1000;
-    flex-wrap: wrap;
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #0A3D62;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 0 10px #00f0ff66;
+    z-index: 1000;
 }
-.nav-logo{font-size:1.8em; font-weight:700; color:#00f0ff;}
-.nav-clock{color:#00f0ff; font-weight:600;}
-.calc-btn{
-    background:#00f0ff; color:#0A3D62; border:none; padding:8px 15px;
-    border-radius:50px; cursor:pointer; font-weight:600; transition:0.3s;
-    white-space: nowrap;
+
+.nav-logo {
+    font-size: 20px;
+    font-weight: bold;
+    color: #00f0ff;
 }
-.calc-btn:hover{background:#00a9b7; transform:scale(1.05);}
-@media (max-width: 600px){
-    .calc-btn{margin-top:8px; width:100%; text-align:center; padding:10px 0;}
-    .navbar{justify-content:center; gap:10px;}
+
+.nav-clock {
+    color: #00f0ff;
+}
+
+.calc-btn {
+    background: #00f0ff;
+    color: #0A3D62;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-right: 40px;
+    /* shift to left */
+}
+
+.calc-btn:hover {
+    background: #00a9b7;
 }
 
 /* ---------------- Container & Form ---------------- */
 .container {
     width: 90%;
-    max-width: 720px;
-    margin: 150px auto 50px;
-    position: relative;
-    z-index: 2;
+    max-width: 600px;
+    margin: 120px auto;
+    padding: 10px;
 }
-h1{text-align:center; font-size:3em; margin-bottom:20px; color:#00f0ff;}
-.reservation-form {
-    background: rgba(10,61,98,0.85);
-    padding:30px;
-    border-radius:20px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.6);
-    backdrop-filter: blur(5px);
-    color:#fff;
-    display:flex;
-    flex-direction:column;
-    gap:20px;
+
+h1 {
+    text-align: center;
+    color: #ffffff;
 }
-.form-row{display:flex; gap:20px; flex-wrap:wrap;}
-.form-group{flex:1; display:flex; flex-direction:column; position:relative;}
-.form-group input,
-.form-group select,
-.form-group textarea{
-    padding:12px 15px; border:none; border-radius:10px;
-    font-size:1em; background:rgba(255,255,255,0.1); color:#fff;
+
+form {
+    background: rgba(10, 61, 98, 0.85);
+    padding: 20px;
+    border-radius: 15px;
 }
-.form-group input::placeholder,
-.form-group textarea::placeholder{color:rgba(255,255,255,0.6);}
-.form-group label{
-    position:absolute; top:-10px; left:15px;
-    background: rgba(10,61,98,0.85); padding:0 5px;
-    font-size:0.9em; color:#00f0ff; font-weight:600;
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
 }
-.submit-container{text-align:center;}
-.btn{
-    background:#00f0ff; color:#0A3D62; font-weight:700;
-    padding:15px 30px; border:none; border-radius:50px;
-    font-size:1.1em; cursor:pointer; transition:0.3s;
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #00f0ff;
+    font-weight: bold;
 }
-.btn:hover{background:#00a9b7; transform:scale(1.05);}
+
+input[type="submit"] {
+    background: #00f0ff;
+    color: #0A3D62;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+input[type="submit"]:hover {
+    background: #00a9b7;
+}
 
 /* ---------------- Help Bot ---------------- */
-.help-bot{position:fixed; bottom:25px; right:25px; z-index:1001;}
-.bot-icon{width:65px; height:65px; background:#00f0ff; color:#0A3D62;
-    border-radius:50%; display:flex; align-items:center; justify-content:center;
-    cursor:pointer; font-size:1.7em;}
-.bot-chat{display:none; position:absolute; bottom:75px; right:0;
-    width:270px; background:rgba(10,61,98,0.95); padding:15px; border-radius:15px;}
+#helpBot {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+#botIcon {
+    width: 50px;
+    height: 50px;
+    background: #00f0ff;
+    color: #0A3D62;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+#botChat {
+    display: none;
+    position: absolute;
+    bottom: 60px;
+    right: 0;
+    width: 250px;
+    background: #0A3D62;
+    padding: 10px;
+    border-radius: 10px;
+}
 
 /* ---------------- Calculator ---------------- */
-.calc-modal{display:none; position:fixed; z-index:1002; left:0; top:0;
-    width:100%; height:100%; overflow:auto; background-color:rgba(0,0,0,0.7);}
-.calc-content{background:#0A3D62; margin:10% auto; padding:20px;
-    border-radius:20px; width:300px; color:#fff; text-align:center;}
-.close-btn{float:right;font-size:28px;cursor:pointer;}
-.calc-buttons{display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-top:10px;}
-.calc-buttons button{padding:15px; font-size:1em; border:none; border-radius:10px; cursor:pointer;}
-.calc-buttons .num{background:#00f0ff; color:#0A3D62;}
-.calc-buttons .op{background:#0a7ba0; color:#fff;}
-#clear{background:#f44336; color:#fff;}
-#equals{background:#00f0ff; color:#0A3D62;}
+#calcModal {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1001;
+}
+
+.calc-content {
+    background: #0A3D62;
+    margin: 50px auto;
+    padding: 20px;
+    width: 300px;
+    border-radius: 15px;
+    color: #fff;
+    text-align: center;
+}
+
+.close-btn {
+    float: right;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.calc-buttons button {
+    padding: 10px;
+    margin: 3px;
+    width: 50px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.calc-buttons .num {
+    background: #00f0ff;
+    color: #0A3D62;
+}
+
+.calc-buttons .op {
+    background: #00a9b7;
+    color: #fff;
+}
+
+#clear {
+    background: #f44336;
+    color: #fff;
+}
+
+#equals {
+    background: #00f0ff;
+    color: #0A3D62;
+    width: 100%;
+}
