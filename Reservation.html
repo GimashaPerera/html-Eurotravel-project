@@ -14,7 +14,6 @@
     <div class="navbar">
         <div class="nav-logo">Euro Travel</div>
         <div class="nav-clock" id="navClock">00:00:00</div>
-        <button class="calc-btn" id="openCalc">Calculator</button>
     </div>
 
     <!-- Background -->
@@ -28,83 +27,62 @@
     <div class="container">
         <h1>Package Reservation</h1>
         <form id="reservationForm">
-            <div>
-                <label for="name">Full Name</label><br>
-                <input type="text" id="name" required><br><br>
-            </div>
 
+            <!-- Package / Country -->
             <div>
-                <label for="email">Email Address</label><br>
-                <input type="email" id="email" required><br><br>
-            </div>
-
-            <div>
-                <label for="package">Select Package</label><br>
+                <label for="package">Package Type</label><br>
                 <select id="package" required>
                     <option value="" disabled selected>Choose Package</option>
-                    <option value="700">Europe Explorer - 7 Days ($700/person)</option>
-                    <option value="1200">Luxury Europe Cruise - 10 Days ($1200/person)</option>
-                    <option value="900">Romantic Paris & Venice - 5 Days ($900/person)</option>
-                    <option value="1000">Scandinavian Adventure - 8 Days ($1000/person)</option>
+                    <option value="Spain,700,7">Spain - 7 Days ($700/person)</option>
+                    <option value="Greece,800,6">Greece - 6 Days ($800/person)</option>
+                    <option value="Portugal,750,5">Portugal - 5 Days ($750/person)</option>
+                    <option value="Netherlands,900,7">Netherlands - 7 Days ($900/person)</option>
+                    <option value="Germany,850,6">Germany - 6 Days ($850/person)</option>
+                    <option value="Italy,950,8">Italy - 8 Days ($950/person)</option>
+                    <option value="France,1000,7">France - 7 Days ($1000/person)</option>
+                    <option value="Switzerland,1200,5">Switzerland - 5 Days ($1200/person)</option>
                 </select><br><br>
             </div>
 
+            <!-- Number of Pax -->
             <div>
-                <label for="people">Number of People</label><br>
-                <input type="number" id="people" min="1" required><br><br>
+                <label for="people">Number of Pax</label><br>
+                <input type="number" id="people" min="1" value="1" required><br><br>
             </div>
 
+            <!-- Travel Dates -->
             <div>
-                <label for="date">Preferred Travel Date</label><br>
-                <input type="date" id="date" required><br><br>
+                <label for="fromDate">From</label><br>
+                <input type="date" id="fromDate" required><br><br>
+
+                <label for="toDate">To</label><br>
+                <input type="date" id="toDate" required><br><br>
             </div>
 
+            <!-- Calculation -->
+            <div>
+                <button type="button" id="calculate">Calculate Cost</button><br><br>
+                <div id="calculationResult" style="color: #00f0ff; font-weight:bold;"></div><br>
+            </div>
+
+            <!-- Additional Notes -->
             <div>
                 <label for="notes">Additional Notes</label><br>
                 <textarea id="notes" rows="4"></textarea><br><br>
             </div>
 
+            <!-- Reserve Button -->
             <input type="submit" value="Reserve Now">
         </form>
     </div>
 
-    <!-- Help Bot -->
+        <!-- Help Bot -->
     <div id="helpBot">
         <div id="botIcon">💬</div>
-        <div id="botChat" style="display:none;">
+        <div id="botChat">
             <p>Hi! Need help with your booking? Ask me anything!</p>
-            <input type="text" id="botInput">
+            <input type="text" id="botInput" placeholder="Type your question...">
             <button id="botSend">Send</button>
-        </div>
-    </div>
-
-    <!-- Calculator -->
-    <div id="calcModal" style="display:none;">
-        <div>
-            <span id="closeCalc">&times;</span>
-            <h2>Calculator</h2>
-            <input type="text" id="calcScreen" readonly><br>
-            <button class="num">7</button>
-            <button class="num">8</button>
-            <button class="num">9</button>
-            <button class="op">/</button><br>
-
-            <button class="num">4</button>
-            <button class="num">5</button>
-            <button class="num">6</button>
-            <button class="op">*</button><br>
-
-            <button class="num">1</button>
-            <button class="num">2</button>
-            <button class="num">3</button>
-            <button class="op">-</button><br>
-
-            <button class="num">0</button>
-            <button class="num">.</button>
-            <button id="clear">C</button>
-            <button class="op">+</button><br>
-
-            <button id="equals">=</button>
         </div>
     </div>
 

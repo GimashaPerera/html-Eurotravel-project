@@ -1,6 +1,6 @@
 /* ---------------- Body & Background ---------------- */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Times New Roman', Times, serif;
     margin: 0;
     color: #fff;
     min-height: 100vh;
@@ -26,11 +26,125 @@ body {
     background-size: cover;
     background-position: center;
     opacity: 0;
-    transition: opacity 2s;
+    transition: opacity 3s;
 }
 
 .bg-slide.active {
-    opacity: 1;
+    opacity: 0.9;
+}
+
+/* ---------------- Navbar ---------------- */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #0A3D62;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 0 10px #00f0ff66;
+    z-index: 1000;
+}
+
+.nav-logo {
+    font-size: 20px;
+    font-weight: bold;
+    color: #00f0ff;
+}
+
+.nav-clock {
+    color: #00f0ff;
+    margin: 10px 30px;
+}
+
+/* ---------------- Container & Form ---------------- */
+.container {
+    width: 90%;
+    max-width: 600px;
+    margin: 120px auto;
+    padding: 10px;
+}
+
+h1 {
+    text-align: center;
+    color: #ffffff;
+}
+
+form {
+    background: rgba(10, 61, 98, 0.85);
+    padding: 20px;
+    border-radius: 15px;
+}
+
+input,
+select,
+textarea,
+button {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+button {
+    cursor: pointer;
+    background: #00f0ff;
+    color: #0A3D62;
+    font-weight: bold;
+}
+
+button:hover {
+    background: #00a9b7;
+}
+
+input[type="submit"] {
+    background: #00f0ff;
+    color: #0A3D62;
+    border-radius: 20px;
+}
+
+input[type="submit"]:hover {
+    background: #00a9b7;
+}
+
+/* ---------------- Body & Background ---------------- */
+body {
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0;
+    color: #fff;
+    min-height: 100vh;
+    background: #0A3D62;
+}
+
+/* Background slides */
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.bg-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 3s;
+}
+
+.bg-slide.active {
+    opacity: 0.9;
 }
 
 /* ---------------- Navbar ---------------- */
@@ -58,21 +172,6 @@ body {
     color: #00f0ff;
 }
 
-.calc-btn {
-    background: #00f0ff;
-    color: #0A3D62;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 20px;
-    cursor: pointer;
-    margin-right: 40px;
-    /* shift to left */
-}
-
-.calc-btn:hover {
-    background: #00a9b7;
-}
-
 /* ---------------- Container & Form ---------------- */
 .container {
     width: 90%;
@@ -94,7 +193,8 @@ form {
 
 input,
 select,
-textarea {
+textarea,
+button {
     width: 100%;
     padding: 8px;
     margin-bottom: 15px;
@@ -104,19 +204,20 @@ textarea {
     color: #fff;
 }
 
-label {
-    display: block;
-    margin-bottom: 5px;
-    color: #00f0ff;
+button {
+    cursor: pointer;
+    background: #00f0ff;
+    color: #0A3D62;
     font-weight: bold;
+}
+
+button:hover {
+    background: #00a9b7;
 }
 
 input[type="submit"] {
     background: #00f0ff;
     color: #0A3D62;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
     border-radius: 20px;
 }
 
@@ -129,6 +230,7 @@ input[type="submit"]:hover {
     position: fixed;
     bottom: 20px;
     right: 20px;
+    z-index: 1001;
 }
 
 #botIcon {
@@ -154,60 +256,13 @@ input[type="submit"]:hover {
     border-radius: 10px;
 }
 
-/* ---------------- Calculator ---------------- */
-#calcModal {
-    display: none;
-    position: fixed;
-    left: 0;
-    top: 0;
+#botChat input {
     width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    z-index: 1001;
+    margin-top: 5px;
+    
 }
 
-.calc-content {
-    background: #0A3D62;
-    margin: 50px auto;
-    padding: 20px;
-    width: 300px;
-    border-radius: 15px;
-    color: #fff;
-    text-align: center;
-}
-
-.close-btn {
-    float: right;
-    cursor: pointer;
-    font-size: 20px;
-}
-
-.calc-buttons button {
-    padding: 10px;
-    margin: 3px;
-    width: 50px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-.calc-buttons .num {
-    background: #00f0ff;
-    color: #0A3D62;
-}
-
-.calc-buttons .op {
-    background: #00a9b7;
-    color: #fff;
-}
-
-#clear {
-    background: #f44336;
-    color: #fff;
-}
-
-#equals {
-    background: #00f0ff;
-    color: #0A3D62;
+#botChat button {
     width: 100%;
+    margin-top: 5px;
 }
