@@ -13,6 +13,7 @@ setInterval(updateClock, 1000);
 updateClock();
 
 // ---------------- Background Slideshow ----------------
+
 var slides = document.getElementsByClassName('bg-slide');
 var currentSlide = 0;
 slides[currentSlide].classList.add("active");
@@ -23,28 +24,50 @@ function nextSlide() {
 }
 setInterval(nextSlide, 5000);
 
-// ---------------- Calculate Cost ----------------
-document.getElementById('calculate').onclick = function () {
-    var pkg = document.getElementById('package').value;
-    var people = parseInt(document.getElementById('people').value);
-    var fromDate = new Date(document.getElementById('fromDate').value);
-    var toDate = new Date(document.getElementById('toDate').value);
 
-    if (!pkg || !people || isNaN(fromDate) || isNaN(toDate)) {
-        alert("Please fill all fields before calculating.");
+// ---------------- Calculate Cost ----------------
+
+
+document.getElementById('toDate').addEventListener('change', calculateCost);
+document.getElementById('fromDate').addEventListener('change', calculateCost);
+document.getElementById('package').addEventListener('change', calculateCost);
+document.getElementById('people').addEventListener('input', calculateCost);
+
+function calculateCost() {
+    
+    var pkg = document.getElementById('package').value;
+    var people1 = parseInt(document.getElementById('people').value);
+    var fromDate1 = new Date(document.getElementById('fromDate').value);
+    var toDate1 = new Date(document.getElementById('toDate').value);
+
+    if (!pkg || !people1 || !fromDate1 || !toDate1 ) {
+         document.getElementById('calculationResult').textContent = "";;
+        return;
+    }
+    var people = people1;
+    var fromDate = fromDate1;
+    var toDate = toDate1;
+
+    if (toDate <= fromDate) {
+        alert("⚠️ To date must be after From date.");
         return;
     }
 
-    var pkgParts = pkg.split(","); // ["Spain","700","7"]
+    var pkgParts = pkg.split(",");
     var country = pkgParts[0];
     var costPerPerson = parseFloat(pkgParts[1]);
-    var days = parseInt(pkgParts[2]);
+    
+    //days calculation
+    var DayDiff = toDate.getTime() - fromDate.getTime();
+    var days = Math.ceil(DayDiff/ (1000 * 60 * 60 * 24));
 
-    var totalCost = costPerPerson * people; // simple multiplication
+    //calculation of total cost
+    var totalCost = costPerPerson * people *days; 
 
     document.getElementById('calculationResult').textContent =
-        `Package: ${country}, Pax: ${people}, Days: ${days}, Total Cost: $${totalCost}`;
+        `Package: ${country}, Pax: ${people}, Days: ${days},  Total Cost: $${totalCost}`;
 };
+
 
 // ---------------- Form Submit ----------------
 var form = document.getElementById('reservationForm');
@@ -53,14 +76,6 @@ form.onsubmit = function (e) {
     alert("Reservation submitted successfully!");
     form.reset();
     document.getElementById('calculationResult').textContent = "";
-};
-
-
-// ---------------- Help Bot ----------------
-var botIcon = document.getElementById('botIcon');
-var botChat = document.getElementById('botChat');
-botIcon.onclick = () => {
-    botChat.style.display = botChat.style.display === "block" ? "none" : "block";
 };
 
 document.getElementById('botSend').onclick = () => {

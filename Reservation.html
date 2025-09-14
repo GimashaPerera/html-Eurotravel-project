@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html >
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
     <title>Euro Travel - Package Reservation</title>
     <link rel="stylesheet" href="Reservation.css">
 </head>
@@ -25,66 +24,54 @@
 
     <!-- Reservation Form -->
     <div class="container">
-        <h1>Package Reservation</h1>
+        
         <form id="reservationForm">
+            <h1>Package Reservation</h1>
 
             <!-- Package / Country -->
             <div>
-                <label for="package">Package Type</label><br>
+                <label for="package">Package Type</label>
                 <select id="package" required>
                     <option value="" disabled selected>Choose Package</option>
-                    <option value="Spain,700,7">Spain - 7 Days ($700/person)</option>
-                    <option value="Greece,800,6">Greece - 6 Days ($800/person)</option>
-                    <option value="Portugal,750,5">Portugal - 5 Days ($750/person)</option>
-                    <option value="Netherlands,900,7">Netherlands - 7 Days ($900/person)</option>
-                    <option value="Germany,850,6">Germany - 6 Days ($850/person)</option>
-                    <option value="Italy,950,8">Italy - 8 Days ($950/person)</option>
-                    <option value="France,1000,7">France - 7 Days ($1000/person)</option>
-                    <option value="Switzerland,1200,5">Switzerland - 5 Days ($1200/person)</option>
-                </select><br><br>
+                    <option value="Spain,700">Spain  ($700/person)</option>
+                    <option value="Greece,800">Greece  ($800/person)</option>
+                    <option value="Portugal,750">Portugal ($750/person)</option>
+                    <option value="Netherlands,900">Netherlands ($900/person)</option>
+                    <option value="Germany,850">Germany ($850/person)</option>
+                    <option value="Italy,950">Italy  ($950/person)</option>
+                    <option value="France,1000,7">France  ($1000/person)</option>
+                    <option value="Switzerland,1200,5">Switzerland ($1200/person)</option>
+                </select><br>
             </div>
 
             <!-- Number of Pax -->
             <div>
-                <label for="people">Number of Pax</label><br>
-                <input type="number" id="people" min="1" value="1" required><br><br>
+                <label for="people">Number of Pax</label>
+                <input type="number" id="people" min="1" value="1" required><br>
             </div>
 
             <!-- Travel Dates -->
             <div>
-                <label for="fromDate">From</label><br>
-                <input type="date" id="fromDate" required><br><br>
+                <label for="fromDate">From</label>
+                <input type="date" id="fromDate" required><br>
 
-                <label for="toDate">To</label><br>
-                <input type="date" id="toDate" required><br><br>
-            </div>
-
-            <!-- Calculation -->
-            <div>
-                <button type="button" id="calculate">Calculate Cost</button><br><br>
-                <div id="calculationResult" style="color: #00f0ff; font-weight:bold;"></div><br>
+                <label for="toDate">To</label>
+                <input type="date" id="toDate" required><br>
             </div>
 
             <!-- Additional Notes -->
             <div>
-                <label for="notes">Additional Notes</label><br>
-                <textarea id="notes" rows="4"></textarea><br><br>
+                <label for="notes">Additional Notes</label>
+                <textarea id="notes" rows="4"></textarea><br>
             </div>
 
+            <p id="calculationResult"></p>
+
             <!-- Reserve Button -->
-            <input type="submit" value="Reserve Now">
+            <button type="submit"> Reserve Now </button> 
         </form>
     </div>
 
-        <!-- Help Bot -->
-    <div id="helpBot">
-        <div id="botIcon">💬</div>
-        <div id="botChat">
-            <p>Hi! Need help with your booking? Ask me anything!</p>
-            <input type="text" id="botInput" placeholder="Type your question...">
-            <button id="botSend">Send</button>
-        </div>
-    </div>
 
     <script src="Reservation.js"></script>
 </body>
