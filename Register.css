@@ -41,11 +41,11 @@ body {
 
 .form-container {
   background:  rgba(10, 61, 98, 0.85);
-  padding: 50px 60px 30px 40px;
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgb(183, 209, 233);
+  padding: 10px 60px 30px 40px;
+  border-radius: 15px;
+  box-shadow:  rgb(183, 209, 233);
   width: 400px;
-  margin: 120px auto;
+  margin: 50px 500px 120px 500px;
   
  
 
@@ -53,7 +53,7 @@ body {
 
 h2 {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   color: #ffffff;
 }
 
@@ -71,6 +71,8 @@ form input {
   border-radius: 5px;
   background-color: #d9e2ea;
   color: rgb(4, 4, 4);
+  font-weight: bold;
+  font-size: small;
 }
 /* Highlight the textframe*/
 form input:focus {
