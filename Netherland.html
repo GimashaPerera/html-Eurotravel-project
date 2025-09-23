@@ -1,72 +1,291 @@
-<?php include __DIR__."/../includes/header.php"; ?>
-<section class="position-relative text-white">
-  <img src="https://images.unsplash.com/photo-1523633589114-88eaf6a00b9a?q=80&w=1600&auto=format&fit=crop"
-       class="w-100 hero-img" alt="Amsterdam, Netherlands">
-  <div class="hero-overlay d-flex align-items-center">
-    <div class="container py-5">
-      <h1 class="display-5 fw-bold">Netherlands</h1>
-      <p class="lead mb-4">Canals, cycling culture, golden-age art—and spring tulip seas from Amsterdam to Keukenhof.</p>
-      <a href="/pages/package-reservation.php?country=Netherlands" class="btn btn-warning btn-lg me-2">Reserve a package</a>
-      <a href="/pages/contact.php?subject=Planning%20Netherlands" class="btn btn-outline-light btn-lg">Talk to an expert</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Netherlands Trips & Tours | Euro Travel</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Discover the Netherlands with Euro Travel. Amsterdam canals, tulip fields, windmills, Delft ceramics and Rotterdam architecture. Tailor-made journeys with expert planning." />
+  <meta property="og:title" content="Netherlands Trips & Tours | Euro Travel" />
+  <meta property="og:description" content="Amsterdam, tulips, windmills, art—designed your way with Euro Travel." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1523633589114-88eaf6a00b9a?q=80&w=1600&auto=format&fit=crop" />
+  <meta name="theme-color" content="#0d6efd" />
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    :root{--et-primary:#0d6efd;--et-accent:#ffc107;--et-dark:#0b1729;}
+    body{scroll-behavior:smooth;}
+    .navbar-brand{font-weight:800;letter-spacing:.5px;}
+    .nav-link{font-weight:600;}
+
+    /* HERO */
+    .hero{min-height:70vh;position:relative;color:#fff;overflow:hidden;}
+    .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.65);transform:scale(1.03);}
+    .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,110,253,.25)0%,rgba(11,23,41,.65)100%);}
+    .hero .content{position:relative;z-index:2;padding:7rem 0 5rem;}
+    .hero .kicker{text-transform:uppercase;letter-spacing:.15rem;opacity:.9;font-weight:700;}
+
+    /* CARDS / UI */
+    .highlight-card{transition:transform .2s,box-shadow .2s;}
+    .highlight-card:hover{transform:translateY(-4px);box-shadow:0 12px 26px rgba(11,23,41,.15);}
+    .icon-pill{width:46px;height:46px;border-radius:50%;background:#eef4ff;display:grid;place-items:center;color:var(--et-primary);margin-right:.6rem;flex:none;}
+    .gallery img{height:230px;object-fit:cover;border-radius:.6rem;}
+    .timeline{border-left:3px solid #e9ecef;padding-left:1rem;}
+    .timeline .dot{width:12px;height:12px;background:var(--et-primary);border-radius:50%;position:absolute;left:-7px;top:.45rem;box-shadow:0 0 0 4px #e8f1ff;}
+    .badge-top{position:absolute;top:.75rem;left:.75rem;}
+    .shadow-soft{box-shadow:0 10px 30px rgba(11,23,41,.15);}
+
+    /* Floating book bar */
+    .book-bar{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);background:#fff;border-radius:999px;padding:.5rem .75rem;box-shadow:0 14px 40px rgba(11,23,41,.18);display:flex;gap:.5rem;align-items:center;z-index:1025;}
+    .book-bar .btn{padding:.5rem 1rem;}
+    .book-bar small{display:none;}
+    @media(min-width:768px){.book-bar small{display:inline;}}
+
+    /* Footer */
+    footer{background:#0b1729;color:#cbd5e1;}
+    footer a{color:#e7f1ff;text-decoration:none;}
+    footer a:hover{color:#fff;}
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="homepage.html"><i class="bi bi-compass me-1"></i>Euro Travel</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div id="nav" class="collapse navbar-collapse">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="homepage.html">Home</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#">Destinations</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="Switzerland.html">Switzerland</a></li>
+            <li><a class="dropdown-item" href="France.html">France</a></li>
+            <li><a class="dropdown-item" href="Italy.html">Italy</a></li>
+            <li><a class="dropdown-item" href="Germany.html">Germany</a></li>
+            <li><a class="dropdown-item" href="Spain.html">Spain</a></li>
+            <li><a class="dropdown-item" href="Greece.html">Greece</a></li>
+            <li><a class="dropdown-item" href="Portugal.html">Portugal</a></li>
+            <li><a class="dropdown-item active" href="Netherlands.html">Netherlands</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="aboutus.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li>
+        <li class="nav-item"><a class="nav-link" href="package-reservation.html">Packages</a></li>
+        <li class="nav-item ms-lg-2">
+          <a class="btn btn-warning" href="package-reservation.html?country=Netherlands"><i class="bi bi-calendar-check me-1"></i>Get Started</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <img src="https://images.unsplash.com/photo-1523633589114-88eaf6a00b9a?q=80&w=1600&auto=format&fit=crop" alt="Amsterdam canals">
+  <div class="content text-center">
+    <div class="container">
+      <div class="kicker mb-2">Netherlands • Tailor-made journeys</div>
+      <h1 class="display-4 fw-bold mb-3">Canals, tulips, and windmills await</h1>
+      <p class="lead mb-4">Art, cycling, and bold modern architecture—planned with local expertise and seamless logistics.</p>
+      <a href="package-reservation.html?country=Netherlands" class="btn btn-warning btn-lg me-2 shadow-soft"><i class="bi bi-bookmark-heart me-1"></i>Reserve a Package</a>
+      <a href="contact.html?subject=Planning%20Netherlands" class="btn btn-outline-light btn-lg shadow-soft"><i class="bi bi-chat-dots me-1"></i>Talk to an Expert</a>
+    </div>
+  </div>
+</header>
+
+<!-- QUICK FACTS -->
+<section class="py-4 bg-light border-bottom">
+  <div class="container">
+    <div class="row text-center g-3">
+      <div class="col-6 col-md-3"><i class="bi bi-bicycle fs-4 text-primary"></i><div class="fw-semibold">Cycling Nation</div><small class="text-muted">Best explored on two wheels</small></div>
+      <div class="col-6 col-md-3"><i class="bi bi-flower1 fs-4 text-primary"></i><div class="fw-semibold">Tulip Season</div><small class="text-muted">Mar–May blooms</small></div>
+      <div class="col-6 col-md-3"><i class="bi bi-brush fs-4 text-primary"></i><div class="fw-semibold">Golden Age Art</div><small class="text-muted">Rembrandt & Van Gogh</small></div>
+      <div class="col-6 col-md-3"><i class="bi bi-buildings fs-4 text-primary"></i><div class="fw-semibold">Modern Design</div><small class="text-muted">Rotterdam & beyond</small></div>
     </div>
   </div>
 </section>
 
-<div class="container py-5">
-  <div class="row g-4">
+<!-- CONTENT -->
+<section class="container py-5">
+  <div class="row g-5">
+    <!-- LEFT -->
     <div class="col-lg-8">
-      <h2 class="mb-3">Highlights</h2>
-      <ul>
-        <li><strong>Amsterdam:</strong> Canal belt, Rijksmuseum & Van Gogh Museum.</li>
-        <li><strong>Keukenhof & Tulip Fields:</strong> Seasonal bloom (mid-Mar to mid-May).</li>
-        <li><strong>Zaanse Schans & Volendam:</strong> Windmills, cheese, clogs & old harbors.</li>
-        <li><strong>Utrecht & Delft:</strong> Cathedral towers, blue-and-white ceramics.</li>
-        <li><strong>Rotterdam:</strong> Striking modern architecture & foodie markets.</li>
-      </ul>
+      <h2 class="section-title mb-3">Trip Highlights</h2>
+      <div class="row g-3">
+        <div class="col-sm-6">
+          <div class="p-3 bg-white border rounded-3 highlight-card h-100 d-flex">
+            <div class="icon-pill"><i class="bi bi-house-door"></i></div>
+            <div><h6 class="fw-bold mb-1">Amsterdam Canals</h6><p class="small text-muted mb-0">UNESCO canal belt, Jordaan cafés, Anne Frank House.</p></div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="p-3 bg-white border rounded-3 highlight-card h-100 d-flex">
+            <div class="icon-pill"><i class="bi bi-flower1"></i></div>
+            <div><h6 class="fw-bold mb-1">Tulip Fields</h6><p class="small text-muted mb-0">Keukenhof gardens and endless spring blooms.</p></div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="p-3 bg-white border rounded-3 highlight-card h-100 d-flex">
+            <div class="icon-pill"><i class="bi bi-wind"></i></div>
+            <div><h6 class="fw-bold mb-1">Windmills</h6><p class="small text-muted mb-0">Zaanse Schans & Kinderdijk heritage sites.</p></div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="p-3 bg-white border rounded-3 highlight-card h-100 d-flex">
+            <div class="icon-pill"><i class="bi bi-brush"></i></div>
+            <div><h6 class="fw-bold mb-1">Art Cities</h6><p class="small text-muted mb-0">Rijksmuseum, Van Gogh Museum, Vermeer’s Delft.</p></div>
+          </div>
+        </div>
+      </div>
 
-      <h3 class="mt-4">Sample 5-day Itinerary</h3>
-      <ol>
-        <li><strong>Day 1 – Amsterdam:</strong> Canal cruise & Jordaan neighborhoods.</li>
-        <li><strong>Day 2 – Art & History:</strong> Rijksmuseum, Van Gogh; Anne Frank House.</li>
-        <li><strong>Day 3 – Keukenhof/Tulips:</strong> Bike among fields; Leiden old town.</li>
-        <li><strong>Day 4 – Windmills & Villages:</strong> Zaanse Schans + Volendam seafood.</li>
-        <li><strong>Day 5 – Delft & Rotterdam:</strong> Pottery workshop & Markthal lunch; departure.</li>
-      </ol>
+      <!-- Gallery -->
+      <h3 class="mt-5 mb-3">Inspiration Gallery</h3>
+      <div class="row g-3 gallery">
+        <div class="col-6 col-md-4"><img class="w-100 shadow-soft" src="https://images.unsplash.com/photo-1468436139062-f60a71c5c892?q=80&w=900&auto=format&fit=crop" alt="Tulip fields"></div>
+        <div class="col-6 col-md-4"><img class="w-100 shadow-soft" src="https://images.unsplash.com/photo-1505761685-d7dcf42f0a3d?q=80&w=900&auto=format&fit=crop" alt="Amsterdam canal"></div>
+        <div class="col-6 col-md-4"><img class="w-100 shadow-soft" src="https://images.unsplash.com/photo-1551615593-ef5fe247e8d1?q=80&w=900&auto=format&fit=crop" alt="Windmill"></div>
+      </div>
 
-      <h3 class="mt-4">Good to Know</h3>
-      <ul>
-        <li><strong>Best time:</strong> Apr–Sep (spring blooms or sunny cycling), Dec for festive lights.</li>
-        <li><strong>Transport:</strong> Compact, rail-friendly; bikes everywhere—ask for easy routes.</li>
-        <li><strong>Passes:</strong> Museumkaart / I amsterdam for savings on sights.</li>
-      </ul>
+      <!-- Itinerary -->
+      <h3 class="mt-5 mb-3">Sample 5-Day Itinerary</h3>
+      <div class="timeline position-relative">
+        <div class="position-relative mb-3"><span class="dot"></span><h6 class="fw-bold">Day 1 — Amsterdam</h6><p class="small text-muted">Canal cruise, Jordaan, local market dinner.</p></div>
+        <div class="position-relative mb-3"><span class="dot"></span><h6 class="fw-bold">Day 2 — Museums</h6><p class="small text-muted">Rijksmuseum, Van Gogh Museum, Anne Frank House.</p></div>
+        <div class="position-relative mb-3"><span class="dot"></span><h6 class="fw-bold">Day 3 — Keukenhof</h6><p class="small text-muted">Tulip gardens & cycling through the fields.</p></div>
+        <div class="position-relative mb-3"><span class="dot"></span><h6 class="fw-bold">Day 4 — Windmills & Villages</h6><p class="small text-muted">Zaanse Schans, Volendam seafood lunch.</p></div>
+        <div class="position-relative"><span class="dot"></span><h6 class="fw-bold">Day 5 — Delft & Rotterdam</h6><p class="small text-muted">Delftware ceramics & Rotterdam’s modern skyline.</p></div>
+      </div>
     </div>
 
-    <div class="col-lg-4">
-      <div class="card shadow-sm">
-        <img src="https://images.unsplash.com/photo-1468436139062-f60a71c5c892?q=80&w=1200&auto=format&fit=crop"
-             class="card-img-top" alt="Keukenhof Gardens">
+    <!-- RIGHT -->
+    <aside class="col-lg-4">
+      <div class="card shadow-soft position-relative mb-4">
+        <span class="badge bg-warning text-dark badge-top"><i class="bi bi-stars me-1"></i>Popular</span>
+        <img src="https://images.unsplash.com/photo-1468436139062-f60a71c5c892?q=80&w=1200&auto=format&fit=crop" class="card-img-top" alt="Keukenhof Gardens">
         <div class="card-body">
           <h5 class="card-title">Popular Packages</h5>
-          <ul class="small mb-3">
+          <ul class="small mb-3 ps-3">
             <li>Amsterdam City Break (3–4 nights)</li>
             <li>Tulip Season Escape (4–5 nights)</li>
             <li>Art & Architecture: Amsterdam–Rotterdam (5–6 nights)</li>
           </ul>
-          <a href="/pages/package-reservation.php?country=Netherlands" class="btn btn-primary w-100">Get a quote</a>
+          <a href="package-reservation.html?country=Netherlands" class="btn btn-primary w-100">Get a Quote</a>
         </div>
       </div>
 
-      <div class="card shadow-sm mt-3">
+      <div class="card shadow-soft mb-4">
         <div class="card-body">
           <h6 class="text-uppercase small mb-2">Trip Planning Tools</h6>
-          <ul class="small mb-0">
+          <ul class="small mb-0 ps-3">
             <li>Timed museum tickets & canal passes</li>
             <li>Guided countryside cycling</li>
             <li>Family, seniors & accessible itineraries</li>
           </ul>
         </div>
       </div>
+
+      <div class="card shadow-soft">
+        <div class="card-body d-flex">
+          <i class="bi bi-quote fs-3 text-primary me-2"></i>
+          <div>
+            <p class="mb-1"><em>“Cycling through tulip fields was a dream—Euro Travel made it effortless.”</em></p>
+            <small class="text-muted">— Liam K., 5-day tulip tour</small>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="bg-light py-5 border-top">
+  <div class="container">
+    <h2 class="text-center mb-3">FAQ</h2>
+    <div class="accordion mx-auto" style="max-width:700px" id="faq">
+      <div class="accordion-item">
+        <h2 class="accordion-header"><button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#n1">When is the best time for tulips?</button></h2>
+        <div id="n1" class="accordion-collapse collapse show" data-bs-parent="#faq"><div class="accordion-body small text-muted">Tulips bloom mid-March to mid-May, with peak around mid-April.</div></div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#n2">Do you arrange cycling tours?</button></h2>
+        <div id="n2" class="accordion-collapse collapse" data-bs-parent="#faq"><div class="accordion-body small text-muted">Yes—bike hire and guided countryside cycling are available.</div></div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#n3">Is public transport easy?</button></h2>
+        <div id="n3" class="accordion-collapse collapse" data-bs-parent="#faq"><div class="accordion-body small text-muted">The Netherlands has excellent trains, trams, and buses; we can issue travel passes.</div></div>
+      </div>
+    </div>
+    <div class="text-center mt-4">
+      <a href="contact.html?subject=Netherlands%20Questions" class="btn btn-outline-primary"><i class="bi bi-envelope me-1"></i>Still have questions?</a>
     </div>
   </div>
+</section>
+
+<!-- Newsletter -->
+<section class="py-5">
+  <div class="container">
+    <div class="p-4 p-md-5 bg-primary text-white rounded-3 shadow-soft d-md-flex align-items-center justify-content-between">
+      <div class="me-md-4">
+        <h3 class="mb-1">Stay inspired</h3>
+        <p class="mb-0 opacity-75">Deals, tulip season tips, Amsterdam highlights.</p>
+      </div>
+      <form class="mt-3 mt-md-0 d-flex gap-2 w-100 w-md-auto" onsubmit="event.preventDefault();document.getElementById('nlMsg').textContent='Subscribed!';">
+        <input type="email" class="form-control" placeholder="Your email" required>
+        <button class="btn btn-warning">Subscribe</button>
+      </form>
+    </div>
+    <div id="nlMsg" class="small text-success mt-2"></div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="pt-5 pb-4">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-5">
+        <h5 class="fw-bold text-white">Euro Travel</h5>
+        <p class="small mb-2">Your gateway to Europe—hassle-free planning, expert support, unforgettable trips.</p>
+        <small class="opacity-75">© <script>document.write(new Date().getFullYear())</script> Euro Travel</small>
+      </div>
+      <div class="col-md-3">
+        <h6 class="text-white">Explore</h6>
+        <ul class="list-unstyled">
+          <li><a href="destinations.html">Destinations</a></li>
+          <li><a href="package-reservation.html">Reserve a Package</a></li>
+          <li><a href="register.html">Register</a></li>
+          <li><a href="contact.html">Get in touch</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h6 class="text-white">Contact</h6>
+        <ul class="list-unstyled small">
+          <li><i class="bi bi-telephone me-1"></i> +94 11 777 3300</li>
+          <li><i class="bi bi-envelope me-1"></i> hello@eurotravel.example</li>
+          <li><i class="bi bi-geo-alt me-1"></i> Damrak 1-5, 1012 LG Amsterdam</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating book bar -->
+<div class="book-bar">
+  <i class="bi bi-suit-heart text-danger fs-5 ms-1 me-1"></i>
+  <small class="fw-semibold">Ready to plan Netherlands?</small>
+  <a href="package-reservation.html?country=Netherlands" class="btn btn-primary btn-sm"><i class="bi bi-calendar-check me-1"></i>Reserve</a>
+  <a href="contact.html?subject=Planning%20Netherlands" class="btn btn-outline-secondary btn-sm">Ask us</a>
 </div>
-<?php include __DIR__."/../includes/footer.php"; ?>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
