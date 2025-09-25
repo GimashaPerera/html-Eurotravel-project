@@ -1,33 +1,10 @@
 /* ---------------- Body & Background ---------------- */
 body {
   font-family: 'Times New Roman', Times, serif;
-  color: #fff;
-  min-height: 100vh;
+  margin: 0;
+  padding: 0;
   background: #0A3D62;
-}
-
-/* Background slides */
-.background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-}
-
-.bg-slide {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  opacity: 0;
-  transition: opacity 3s;
-}
-
-.bg-slide.active {
-  opacity: 0.9;
+  color: #fff;
 }
 
 /* ---------------- Navbar ---------------- */
@@ -56,18 +33,77 @@ body {
   margin: 10px 30px;
 }
 
-/* ---------------- Destination Gallery ---------------- */
+/* ---------------- Header ---------------- */
+.header {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.bg-slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 3s;
+}
+
+.bg-slide.active {
+  opacity: 0.9;
+}
+
+.header-content {
+  z-index: 1;
+}
+
+.header-content h1 {
+  font-size: 48px;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.header-buttons button {
+  margin: 10px;
+  padding: 12px 20px;
+  background-color: #2b6de8;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1em;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.header-buttons button:hover {
+  background-color: #003fbb;
+}
+
+/* ---------------- Main Content ---------------- */
+.main-content {
+  background: #ffffff;
+  color: #000;
+  padding: 60px 0;
+}
+
 .container {
   width: 90%;
   max-width: 1000px;
-  margin: 120px auto;
-  padding: 10px;
-}
-
-h1 {
-  text-align: center;
-  color: #ffffff;
-  margin-bottom: 50px;
+  margin: auto;
 }
 
 .gallery {
@@ -77,19 +113,25 @@ h1 {
 }
 
 .destination {
-  background: rgba(10, 61, 98, 0.85);
+  background: #001f4d; /* Dark blue background */
   padding: 10px;
   border-radius: 20px;
   box-shadow: 0 2px 10px rgba(0, 240, 255, 0.2);
   color: #fff;
+  text-align: center;
 }
 
 .destination img {
   width: 100%;
-  height: auto;
+  max-width: 250px;       /* Fixed width */
+  height: 180px;          /* Fixed height */
+  object-fit: cover;      /* Crop to fit */
   border-radius: 10px;
   border: 2px solid #00f0ff;
+  background-color: #001f4d; /* Optional: fallback background */
+  margin-bottom: 10px;
 }
+
 
 .destination button {
   margin-top: 10px;

@@ -13,53 +13,63 @@
     <div class="nav-clock" id="navClock">00:00:00</div>
   </div>
 
-  <!-- Background Slides -->
-  <div class="background">
-    <div class="bg-slide" style="background-image:url('images/img1.jpg')"></div>
-    <div class="bg-slide" style="background-image:url('images/img2.jpg')"></div>
-    <div class="bg-slide" style="background-image:url('images/img3.jpg')"></div>
-  </div>
-
-  <!-- Destination Gallery -->
-  <div class="container">
-    <h1>Explore Europe</h1>
-    <div class="gallery">
-      <div class="destination">
-        <img src="images/Switz.jpg" alt="Switz" />
-        <button onclick="location.href='paris-itinerary.html'">View Switzerland</button>
-      </div>
-      <div class="destination">
-        <img src="images/france.jpg".jpg" alt="france" />
-        <button onclick="location.href='France.html'">View France</button>
-      </div>
-      <div class="destination">
-        <img src="images/italy.jpg" alt="italy" />
-        <button onclick="location.href='barcelona-itinerary.html'">View Italy</button>
-      </div>
-      <div class="destination">
-        <img src="images/germany.jpg" alt="Amsterdam" />
-        <button onclick="location.href='amsterdam-itinerary.html'">View Germany</button>
-      </div>
-      <div class="destination">
-        <img src="images/spain.jpg" alt="Prague" />
-        <button onclick="location.href='prague-itinerary.html'">View Spain</button>
-      </div>
-      <div class="destination">
-        <img src="images/greece.jpg" alt="Vienna" />
-        <button onclick="location.href='vienna-itinerary.html'">View Greece</button>
-      </div>
-      <div class="destination">
-        <img src="images/port.jpg" alt="Lisbon" />
-        <button onclick="location.href='lisbon-itinerary.html'">View Portugal</button>
-      </div>
-      <div class="destination">
-        <img src="images/nether.jpg" alt="Lisbon" />
-        <button onclick="location.href='lisbon-itinerary.html'">View Netherlands</button>
+  <!-- Header Section with Slideshow -->
+  <header class="header">
+    <div class="background">
+      <div class="bg-slide" style="background-image:url('images/img1.jpg')"></div>
+      <div class="bg-slide" style="background-image:url('images/img2.jpg')"></div>
+      <div class="bg-slide" style="background-image:url('images/img3.jpg')"></div>
+    </div>
+    <div class="header-content">
+      <h1>Explore Europe</h1>
+      <div class="header-buttons">
+        <button onclick="location.href='index.html'">Go Back to Home</button>
+        <button onclick="location.href='reservation.html'">Reservations</button>
       </div>
     </div>
-  </div>
+  </header>
 
-  <!-- Clock & Background Script -->
+  <!-- Destination Gallery -->
+  <main class="main-content">
+    <div class="container">
+      <div class="gallery">
+        <div class="destination">
+          <img src="images/Switz.jpg" alt="Switzerland" />
+          <button onclick="location.href='switzerland-itinerary.html'">View Switzerland</button>
+        </div>
+        <div class="destination">
+          <img src="images/france.jpg" alt="France" />
+          <button onclick="location.href='france-itinerary.html'">View France</button>
+        </div>
+        <div class="destination">
+          <img src="images/italy.jpg" alt="Italy" />
+          <button onclick="location.href='italy-itinerary.html'">View Italy</button>
+        </div>
+        <div class="destination">
+          <img src="images/germany.jpg" alt="Germany" />
+          <button onclick="location.href='germany-itinerary.html'">View Germany</button>
+        </div>
+        <div class="destination">
+          <img src="images/spain.jpg" alt="Spain" />
+          <button onclick="location.href='spain-itinerary.html'">View Spain</button>
+        </div>
+        <div class="destination">
+          <img src="images/greece.jpg" alt="Greece" />
+          <button onclick="location.href='greece-itinerary.html'">View Greece</button>
+        </div>
+        <div class="destination">
+          <img src="images/port.jpg" alt="Portugal" />
+          <button onclick="location.href='portugal-itinerary.html'">View Portugal</button>
+        </div>
+        <div class="destination">
+          <img src="images/nether.jpg" alt="Netherlands" />
+          <button onclick="location.href='netherlands-itinerary.html'">View Netherlands</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Clock & Slideshow Script -->
   <script>
     function updateClock() {
       const now = new Date();
