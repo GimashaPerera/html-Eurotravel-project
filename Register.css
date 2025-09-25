@@ -1,77 +1,67 @@
 body {
   margin: 0;
   font-family: 'Times New Roman', Times, serif;
-  color: #fff;
+  color: #000000;
   min-height: 100vh;
   height: 100vh;
 }
 
 .background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }
 
 .bg-slide {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    opacity: 0;
-    transition: opacity 3s;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 3s;
 }
 
 .bg-slide.active {
-    opacity: 0.9;
+  opacity: 0.9;
 }
 
-.success-message 
-{
+.success-message {
   margin-top: 20px;
   color: #00ffcc;
   text-align: center;
   display: none;
 }
 
-.form-container {
-  background:  rgba(10, 61, 98, 0.85);
-  padding: 10px 60px 30px 40px;
-  border-radius: 15px;
-  box-shadow:  rgb(183, 209, 233);
-  width: 400px;
-  margin: 50px 500px 120px 500px;
-  
- 
-
-}
 
 h2 {
   text-align: center;
   margin-bottom: 20px;
-  color: #ffffff;
+  color: #000000;
+  text-shadow: 5px 5px 10px rgba(255, 255, 255, 0.866);
 }
 
- label {
+label {
   display: block;
   margin-top: 15px;
   margin-bottom: 5px;
   font-weight: bold;
 }
 
- input {
+input {
   width: 100%;
   padding: 10px;
   border: none;
   border-radius: 5px;
-  background: rgba(255, 255, 255, 0.1);
-  color: #fff;
+  background: rgba(0, 0, 0, 0.1);
+  color: #000000;
   font-weight: bold;
   font-size: small;
 }
+
 /* Highlight the textframe*/
 form input:focus {
   outline: 2px solid #0858f9;
@@ -82,7 +72,7 @@ button {
   margin: 30px 130px;
   width: 150px;
   padding: 12px;
-  background-color: #2b6de8; 
+  background-color: #2b6de8;
   color: rgb(255, 255, 255);
   border-radius: 20px;
   font-size: 1em;
@@ -93,4 +83,217 @@ button {
 
 button:hover {
   background-color: #003fbb;
+}
+
+
+.nav-logo {
+  font-size: 30px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.nav-clock {
+  margin: 10px 30px;
+  color: #fff;
+  font-size: 20px;
+}
+
+/* Footer */
+.site-footer {
+  background: #fff;
+  color: #333;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-top: 40px;
+  border-top: 2px solid #eee;
+  width: 100%;
+}
+
+.footer-container {
+  width: 100%;
+  padding: 40px 50px;
+  box-sizing: border-box;
+}
+
+.footer-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: space-between;
+}
+
+.footer-col {
+  flex: 1 1 220px;
+}
+
+.footer-col h3 {
+  font-size: 16px;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.footer-col p {
+  margin-bottom: 15px;
+  color: #555;
+}
+
+.footer-links,
+.footer-contact,
+.footer-social {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li,
+.footer-contact li {
+  margin-bottom: 8px;
+}
+
+.footer-links a,
+.footer-contact a {
+  color: #333;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover,
+.footer-contact a:hover {
+  color: #2b6de8;
+}
+
+.footer-social {
+  display: flex;
+  gap: 10px;
+}
+
+.footer-social li a {
+  width: 32px;
+  height: 32px;
+  background: #f5f5f5;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+.footer-social li a:hover {
+  background: #2b6de8;
+  color: #fff;
+}
+
+.footer-bottom {
+  background: #f9f9f9;
+  text-align: center;
+  padding: 12px 0;
+  font-size: 13px;
+  color: #555;
+  border-top: 1px solid #eee;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-row {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-social {
+    justify-content: center;
+  }
+
+  .footer-container {
+    padding: 30px 20px;
+  }
+}
+
+.page-title {
+  position: relative;
+  text-align: center;
+
+  font-size: 64px;
+  font-weight: bold;
+  color: #ffffff;
+  margin-top: 120px;
+  /* pushes it down below navbar */
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+  /* glow for visibility */
+}
+
+.form-container {
+  background: rgba(255, 255, 255, 0.85);
+  padding: 20px 60px 30px 40px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+  width: 400px;
+  margin: 40px auto 120px auto;
+  /* auto centers horizontally */
+}
+
+.form-container {
+  margin-left: auto;
+  margin-right: 50px;
+  /* adjust distance from right edge */
+}
+
+.login-tagline {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 24px;
+  color: #f5f5f5;
+
+}
+
+.form-title {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 24px;
+  color: #000000;
+
+}
+
+.left-welcome {
+  width: 45%;
+  /* take left half of the screen */
+  float: left;
+  /* align left */
+  padding: 80px 50px;
+  color: #ffffff;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.left-welcome h2 {
+  font-size: 42px;
+  margin-bottom: 20px;
+}
+
+.left-welcome p {
+  font-size: 18px;
+  line-height: 1.8;
+  /* space between lines */
+  margin-bottom: 20px;
+  /* space below the paragraph */
+  white-space: pre-line;
+  /* preserves line breaks if you press Enter in HTML */
+}
+
+
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: rgba(10, 61, 98, 0.5);
+  /* semi-transparent */
+  box-shadow: 0 0 10px #00f0ff66;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+  /* optional: adds a glass-like blur effect */
 }
