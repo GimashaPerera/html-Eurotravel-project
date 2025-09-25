@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discover Italy - Euro Travels</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    header {
+      background: url('https://upload.wikimedia.org/wikipedia/commons/4/4e/Colosseo_2020.jpg') no-repeat center center/cover;
+      color: white;
+      text-align: center;
+      padding: 80px 20px;
+    }
+    header h1 {
+      font-size: 48px;
+      margin: 0;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+    }
+    header p {
+      font-size: 20px;
+      margin-top: 10px;
+    }
+    section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h2 {
+      color: #b30000;
+      border-left: 5px solid #b30000;
+      padding-left: 10px;
+      margin-bottom: 20px;
+    }
+    .attractions, .food {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .card h3 {
+      margin: 15px;
+      color: #333;
+    }
+    .card p {
+      margin: 0 15px 15px;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 20px;
+      margin-top: 20px;
+      background: #b30000;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      background: #800000;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Discover Italy</h1>
+    <p>The land of history, art, fashion & cuisine</p>
+  </header>
+
+  <section>
+    <h2>Top Attractions</h2>
+    <div class="attractions">
+      <div class="card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Colosseum_in_Rome%2C_Italy_-_April_2007.jpg" alt="Colosseum">
+        <h3>Colosseum, Rome</h3>
+        <p>Step back into history at the iconic Colosseum, the grand amphitheater of ancient Rome.</p>
+      </div>
+      <div class="card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/9d/Venice_Italy_Grand_Canal_2019.jpg" alt="Venice">
+        <h3>Venice Canals</h3>
+        <p>Enjoy a romantic gondola ride through the enchanting canals of Venice.</p>
+      </div>
+      <div class="card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/16/Florence_-_Duomo_2019.jpg" alt="Florence Cathedral">
+        <h3>Florence Cathedral</h3>
+        <p>Admire the Renaissance architecture and art at the magnificent Florence Cathedral.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Italian Cuisine</h2>
+    <div class="food">
+      <div class="card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Recipe_pizza.jpg" alt="Pizza">
+        <h3>Pizza</h3>
+        <p>Originating from Naples, pizza is a must-try Italian classic loved worldwide.</p>
+      </div>
+      <div class="card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/58/Pasta_DSC03624.jpg" alt="Pasta">
+        <h3>Pasta</h3>
+        <p>From spaghetti to lasagna, Italian pasta dishes are a delightful culinary experience.</p>
+      </div>
+      <div class="card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Tiramisu_4.jpg" alt="Tiramisu">
+        <h3>Tiramisu</h3>
+        <p>A sweet treat made with coffee-soaked ladyfingers and mascarpone cream.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="text-align:center;">
+    <h2>Plan Your Trip</h2>
+    <p>Book your Italian adventure with Euro Travels and experience the beauty of Italy.</p>
+    <a href="register.html" class="btn">Book Now</a>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Euro Travels | Explore the World with Us</p>
+  </footer>
+
+</body>
+</html>
