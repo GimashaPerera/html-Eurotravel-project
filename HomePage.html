@@ -1,194 +1,530 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Euro Travel – Explore Europe</title>
-  <meta name="description" content="Euro Travel – Luxury and custom European trips. Discover destinations, seasonal offers, and exclusive packages.">
-  <meta name="theme-color" content="#0d6efd">
+  <title>Euro Travel — Smarter European Journeys</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="theme-color" content="#0a2a6b" />
+  <meta name="description" content="Tailor-made European travel with expert planning, 24/7 support, and exclusive perks. Euro Travel—your smarter way to explore Europe." />
 
-  <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Bootstrap Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-  <!-- AOS Animations -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- Core CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css" rel="stylesheet"/>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
+
+  <!-- Fav -->
+  <link rel="icon" href="https://dummyimage.com/64x64/0a2a6b/ffffff&text=ET"/>
 
   <style>
-    :root {
-      --et-primary:#0d6efd;
-      --et-dark:#0a0f1a;
-      --et-card:#111827;
-      --et-text:#e5e7eb;
-      --et-muted:#9aa4b2;
+    :root{
+      --deep:#071a44;
+      --blue:#0a2a6b;
+      --accent:#0d6efd;
+      --ink:#0e1a2b;
+      --muted:#7e90a9;
+      --soft:#f4f8ff;
+      --glass: rgba(255,255,255,.08);
+      --white:#fff;
     }
-    body { background:var(--et-dark); color:var(--et-text); scroll-behavior:smooth; }
-    .navbar { background:rgba(0,0,0,.85); }
-    .navbar-brand { font-weight:700; }
-    .hero { min-height:100vh; position:relative; color:#fff; overflow:hidden; }
-    .hero video { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; filter:brightness(.55); }
-    .hero::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(13,110,253,.2),rgba(0,0,0,.8)); }
-    .hero .content { position:relative; z-index:2; padding-top:8rem; }
-    .search-box { background:rgba(17,24,39,.9); padding:1rem; border-radius:.75rem; box-shadow:0 6px 20px rgba(0,0,0,.4); }
-    .card-dest { border-radius:.75rem; overflow:hidden; position:relative; transition:.3s; }
-    .card-dest img { transition:transform .4s; }
-    .card-dest:hover img { transform:scale(1.1); }
-    .card-dest .overlay { position:absolute; bottom:0; left:0; right:0; background:linear-gradient(180deg,transparent,rgba(0,0,0,.85)); padding:1rem; }
-    .bg-panel { background:var(--et-card); border-radius:.75rem; }
-    .icon-pill { width:65px;height:65px;border-radius:50%;display:grid;place-items:center;background:rgba(13,110,253,.15);color:var(--et-primary);margin:auto;font-size:1.4rem; }
-    footer { background:#000; color:#b6c1d3; }
-    footer a { color:#e6eeff; text-decoration:none; }
-    footer a:hover { color:#fff; }
-    .book-bar { position:fixed; bottom:20px; right:20px; background:#0d6efd; color:#fff; border-radius:50px; padding:.7rem 1.2rem; box-shadow:0 6px 20px rgba(0,0,0,.4); z-index:1050; }
-    .cookie-banner { position:fixed; bottom:0; left:0; right:0; background:#111827; color:#e5e7eb; padding:1rem; z-index:1051; display:none; }
+    html,body{height:100%}
+    body{font-family:system-ui,-apple-system,Segoe UI,Inter,Roboto,Arial,sans-serif;color:var(--ink);background:#fff;scroll-behavior:smooth}
+    img[loading="lazy"]{content-visibility:auto}
+
+    /* ===== Glass NAV ===== */
+    .topbar{background:linear-gradient(90deg,var(--deep),#0c2f76); color:#d9e4ff; font-size:.92rem}
+    .topbar .nav-link{color:#d9e4ff!important}
+    .mainnav{position:sticky;top:0;z-index:1030;background:rgba(10,24,55,.55);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.08)}
+    .mainnav .navbar-brand img{height:44px}
+    .mainnav .nav-link{color:#e9f1ff!important;font-weight:700;letter-spacing:.2px}
+    .mainnav .nav-link:hover{color:#a8caff!important}
+    .mega{position:absolute;left:0;right:0;top:100%;background:rgba(6,22,60,.92);backdrop-filter:blur(8px);display:none;border-bottom:1px solid rgba(255,255,255,.08)}
+    .nav-item.mega-parent:hover .mega{display:block}
+    .mega a{color:#e7f0ff;text-decoration:none}
+    .mega a:hover{color:#fff}
+
+    /* ===== HERO ===== */
+    .hero{position:relative;min-height:92vh;display:grid;place-items:center;overflow:hidden}
+    .hero::before{
+      content:"";position:absolute;inset:0;
+      background:
+        radial-gradient(1200px 600px at 10% -10%, rgba(77,184,255,.25), transparent 60%),
+        linear-gradient(180deg, rgba(3,10,30,.1), rgba(3,10,30,.6)),
+        url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;
+      filter:saturate(1.05) contrast(1.03) brightness(.9);
+      z-index:-1
+    }
+    .hero .wrap{text-align:center;color:#fff;padding:0 1rem;max-width:1000px}
+    .kicker{display:inline-flex;gap:.5rem;align-items:center;padding:.35rem .7rem;border-radius:999px;background:rgba(255,255,255,.12);backdrop-filter:blur(6px);font-weight:700}
+    .hero h1{font-weight:900;font-size:clamp(2.2rem,5vw,4rem);line-height:1.08;text-shadow:0 18px 50px rgba(0,0,0,.35)}
+    .hero p.lead{opacity:.96;max-width:820px;margin:.75rem auto 1.25rem}
+    .btn-accent{background:var(--accent);color:#fff;border:none;border-radius:.75rem;padding:.9rem 1.25rem;font-weight:800;box-shadow:0 10px 30px rgba(13,110,253,.35)}
+    .btn-accent:hover{background:#175bf1;color:#fff;transform:translateY(-1px)}
+    .btn-ghost{border:2px solid rgba(255,255,255,.65);color:#fff;border-radius:.75rem;padding:.85rem 1.2rem;font-weight:800}
+    .btn-ghost:hover{background:rgba(255,255,255,.14);color:#fff}
+    .hero-keys{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);display:flex;gap:.5rem;align-items:center;color:#eaf3ff}
+    .pulse{position:absolute;inset:auto auto 24px 24px;width:58px;height:58px;border-radius:50%;background:rgba(13,110,253,.2);box-shadow:inset 0 0 0 2px rgba(77,184,255,.6);animation:pulse 2.4s infinite}
+    @keyframes pulse{0%{transform:scale(.98)}50%{transform:scale(1.05)}100%{transform:scale(.98)}}
+
+    /* ===== TRUST / COUNTERS ===== */
+    .trust{background:#fff;padding:28px 0;border-bottom:1px solid rgba(7,26,68,.06)}
+    .trust img{height:28px;opacity:.85;filter:grayscale(1);transition:.25s}
+    .trust img:hover{opacity:1;filter:none}
+    .counters{background:#fff}
+    .counter-box{background:#fafcff;border:1px solid rgba(7,26,68,.08);border-radius:14px;padding:20px;text-align:center}
+    .counter{font-size:2rem;font-weight:900;color:var(--blue)}
+
+    /* ===== DIFFERENT ===== */
+    .home-diff{padding:70px 0;background:var(--soft)}
+    .main-title{text-align:center;font-weight:900;color:var(--blue);margin-bottom:10px}
+    .sep img{height:10px;opacity:.9}
+    .step{background:#fff;border:1px solid rgba(7,26,68,.08);border-radius:14px;padding:22px;height:100%;position:relative;transition:.25s}
+    .step:hover{transform:translateY(-4px);box-shadow:0 18px 46px rgba(7,26,68,.12)}
+    .step .num{position:absolute;right:14px;bottom:8px;font-weight:900;color:#9eb2d9;opacity:.4;font-size:2rem}
+
+    /* ===== UPDATES ===== */
+    .updates{padding:70px 0}
+    .blog-card{border:none;border-radius:14px;overflow:hidden;box-shadow:0 10px 30px rgba(7,26,68,.08);transition:.25s;background:#fff}
+    .blog-card:hover{transform:translateY(-6px)}
+    .shine{position:relative}
+    .shine::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 0,rgba(255,255,255,.4) 40%,transparent 80%);transform:translateX(-120%);transition:transform .8s}
+    .blog-card:hover .shine::after{transform:translateX(120%)}
+
+    /* ===== SOLUTIONS ===== */
+    .solutions{padding:60px 0;background:#fff}
+    .tile{background:#fff;border:1px solid rgba(7,26,68,.08);border-radius:14px;text-align:center;padding:26px;transition:.25s}
+    .tile:hover{transform:translateY(-4px);box-shadow:0 16px 46px rgba(7,26,68,.12)}
+    .tile i{transition:.25s}
+    .tile:hover i{transform:scale(1.08)}
+
+    /* ===== PARALLAX CLOUDS ===== */
+    .divider{position:relative;height:260px;overflow:hidden;background:#061a45}
+    .mountain{position:absolute;inset:0;width:100%;height:260px;object-fit:cover;filter:contrast(1.05)}
+    .cloud{position:absolute;width:420px;opacity:.85;filter:blur(.2px)}
+    .cloud.c1{top:20px;left:-220px;animation:drift 70s linear infinite}
+    .cloud.c2{top:70px;left:20%;animation:drift 95s linear infinite}
+    .cloud.c3{top:30px;left:60%;animation:drift 80s linear infinite reverse}
+    .cloud.c4{bottom:14px;left:-160px;animation:drift 110s linear infinite}
+    @keyframes drift{from{transform:translateX(0)}to{transform:translateX(120vw)}}
+
+    /* ===== FOOTER ===== */
+    .footer{background:#0b1f54;color:#dbe7ff;padding-top:56px}
+    .footer .logo{height:44px}
+    .footer .btn{background:var(--accent);color:#fff}
+    .footer a{color:#e7f0ff}
+    .footer a:hover{color:#fff}
+    .copyright{background:#061a45;color:#d6e1ff;padding:12px 0;text-align:center}
+
+    /* ===== COOKIE — banner + modal fallback ===== */
+    .cookie-banner{
+      position:fixed;left:20px;right:20px;bottom:20px;z-index:1050;
+      background:linear-gradient(180deg,rgba(6,22,60,.95),rgba(6,22,60,.88));
+      border:1px solid rgba(255,255,255,.14);color:#eaf1ff;padding:14px 16px;border-radius:14px;
+      display:none;box-shadow:0 18px 48px rgba(0,0,0,.24);backdrop-filter:blur(10px)
+    }
+    .cookie-banner .btn{border:none}
+    .cookie-accept{background:var(--accent)}
+    .cookie-reject{background:#98a6be}
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      .hero-keys,.pulse{display:none}
+      *{animation:none!important;transition:none!important}
+    }
   </style>
 </head>
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-  <div class="container">
-    <a class="navbar-brand" href="#"><i class="bi bi-compass text-primary me-1"></i>Euro Travel</a>
-    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav"><span class="navbar-toggler-icon"></span></button>
-    <div id="nav" class="collapse navbar-collapse">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Destinations</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Packages</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Offers</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+  <!-- ========== TOPBAR ========== -->
+  <div class="topbar py-1">
+    <div class="container d-flex justify-content-between align-items-center">
+      <ul class="nav small">
+        <li class="nav-item"><a class="nav-link px-2" href="about.html">About Us</a></li>
+        <li class="nav-item"><a class="nav-link px-2" href="contact.html">Get in Touch</a></li>
       </ul>
+      <div class="small">24/7 Hotline: <a class="nav-link d-inline p-0" href="tel:+94117773300">+94 11 777 3300</a></div>
     </div>
   </div>
-</nav>
 
-<!-- HERO -->
-<header class="hero text-center">
-  <video autoplay muted loop>
-    <source src="https://videos.pexels.com/video-files/3004908/3004908-hd_1920_1080_25fps.mp4" type="video/mp4">
-  </video>
-  <div class="content">
-    <div class="container" data-aos="fade-up">
-      <h1 class="display-3 fw-bold">Discover Europe with Us</h1>
-      <p class="lead mb-4">Luxury, culture, and adventure—crafted your way</p>
-      <div class="row justify-content-center">
-        <div class="col-lg-8">
-          <div class="search-box">
-            <div class="row g-2">
-              <div class="col-md-4"><input type="text" class="form-control" placeholder="Destination"></div>
-              <div class="col-md-3"><input type="date" class="form-control"></div>
-              <div class="col-md-3"><select class="form-select"><option>Duration</option><option>3 Nights</option><option>5 Nights</option></select></div>
-              <div class="col-md-2"><button class="btn btn-primary w-100">Search</button></div>
+  <!-- ========== GLASS NAVBAR ========== -->
+  <header class="mainnav">
+    <nav class="navbar navbar-expand-lg container">
+      <a class="navbar-brand" href="index.html">
+        <img src="https://dummyimage.com/200x44/0a2a6b/ffffff&text=Euro+Travel" alt="Euro Travel">
+      </a>
+      <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item mega-parent position-static">
+            <a class="nav-link px-3" href="destinations.html">Destinations</a>
+            <!-- Mega -->
+            <div class="mega py-4">
+              <div class="container">
+                <div class="row g-4">
+                  <div class="col-6 col-lg-3">
+                    <h6 class="text-white-50">Featured</h6>
+                    <ul class="list-unstyled">
+                      <li><a href="france.html">France</a></li>
+                      <li><a href="netherlands.html">Netherlands</a></li>
+                      <li><a href="italy.html">Italy</a></li>
+                      <li><a href="switzerland.html">Switzerland</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-6 col-lg-3">
+                    <h6 class="text-white-50">More</h6>
+                    <ul class="list-unstyled">
+                      <li><a href="germany.html">Germany</a></li>
+                      <li><a href="spain.html">Spain</a></li>
+                      <li><a href="greece.html">Greece</a></li>
+                      <li><a href="portugal.html">Portugal</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="p-3 rounded-3" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12)">
+                      <h6 class="text-white mb-2">Quick search</h6>
+                      <form class="row g-2" action="search.html">
+                        <div class="col-md-9"><input class="form-control form-control-lg" name="q" placeholder="Try ‘Provence’, ‘Tulips’, ‘Amalfi’"></div>
+                        <div class="col-md-3 d-grid"><button class="btn btn-primary btn-lg">Search</button></div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
+          </li>
+          <li class="nav-item"><a class="nav-link px-3" href="packages.html">Packages</a></li>
+          <li class="nav-item"><a class="nav-link px-3" href="register.html">Register</a></li>
+          <li class="nav-item"><a class="nav-link px-3" href="reservation.html">Reservation</a></li>
+          <li class="nav-item"><a class="nav-link px-3" href="get-started.html">Get Started</a></li>
+          <li class="nav-item"><a class="btn btn-sm btn-light ms-lg-2" data-bs-toggle="modal" data-bs-target="#quoteModal"><i class="fa-solid fa-bolt me-1"></i>Quick Quote</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero" aria-label="Hero">
+    <div class="pulse" aria-hidden="true"></div>
+    <div class="wrap" data-aos="fade-up">
+      <span class="kicker"><i class="fa-solid fa-compass"></i> Smarter European Journeys</span>
+      <h1 class="mt-3"><span id="typewriter">Discover France, Netherlands, Italy & beyond.</span></h1>
+      <p class="lead">Tailor-made itineraries, insider perks, and 24/7 support—so you can simply enjoy the magic of Europe.</p>
+      <div class="d-flex flex-wrap justify-content-center gap-2">
+        <a href="destinations.html" class="btn btn-accent btn-lg">Explore Destinations</a>
+        <a href="reservation.html" class="btn btn-ghost btn-lg">Reserve Now</a>
+      </div>
+    </div>
+
+    <div class="hero-keys small">
+      <i class="fa-solid fa-arrow-left-long"></i>
+      <span>Press ← → to browse</span>
+      <i class="fa-solid fa-arrow-right-long"></i>
+    </div>
+  </section>
+
+  <!-- ========== TRUST & COUNTERS ========== -->
+  <section class="trust" aria-label="Trusted by">
+    <div class="container d-flex flex-wrap justify-content-center gap-4 align-items-center">
+      <img loading="lazy" alt="Amadeus" src="https://dummyimage.com/120x28/ffffff/aaa&text=Amadeus">
+      <img loading="lazy" alt="IATA" src="https://dummyimage.com/90x28/ffffff/aaa&text=IATA">
+      <img loading="lazy" alt="SkyTeam" src="https://dummyimage.com/120x28/ffffff/aaa&text=SkyTeam">
+      <img loading="lazy" alt="Star Alliance" src="https://dummyimage.com/140x28/ffffff/aaa&text=Star+Alliance">
+      <img loading="lazy" alt="oneworld" src="https://dummyimage.com/120x28/ffffff/aaa&text=oneworld">
+    </div>
+  </section>
+
+  <section class="counters py-4">
+    <div class="container">
+      <div class="row g-3">
+        <div class="col-6 col-lg-3">
+          <div class="counter-box"><div class="counter" data-target="12000">0</div><div class="text-muted">Happy Travelers</div></div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="counter-box"><div class="counter" data-target="38">0</div><div class="text-muted">European Cities</div></div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="counter-box"><div class="counter" data-target="15">0</div><div class="text-muted">Years Experience</div></div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="counter-box"><div class="counter" data-target="24">0</div><div class="text-muted">/7 Support</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHAT MAKES US DIFFERENT ========== -->
+  <section class="home-diff" id="how">
+    <div class="container">
+      <h2 class="main-title" data-aos="fade-up">What Makes Us Different?<br><small class="text-muted">It’s how we do it.</small></h2>
+      <div class="text-center sep mb-4" data-aos="zoom-in"><img src="https://dummyimage.com/90x10/0a2a6b/ffffff" alt=""></div>
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="fade-up"><div class="step h-100"><h4 class="fw-bold text-primary">Creating Your Trip</h4><p>Tell us your vibe—city lights or seaside calm—and we’ll sketch your perfect route.</p><span class="num">1</span></div></div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100"><div class="step h-100"><h4 class="fw-bold text-primary">Perfecting It</h4><p>We refine everything with dining, shows, vineyards, skip-the-line passes and guides.</p><span class="num">2</span></div></div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200"><div class="step h-100"><h4 class="fw-bold text-primary">Payment & Support</h4><p>Secure checkout, clear docs, and a human on call any time—before & during your trip.</p><span class="num">3</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== UPDATES ========== -->
+  <section class="updates">
+    <div class="container">
+      <h2 class="main-title" data-aos="fade-up">Updates & Articles</h2>
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="zoom-in">
+          <article class="blog-card">
+            <div class="shine">
+              <img loading="lazy" class="w-100" alt="France" src="https://images.unsplash.com/photo-1508051123996-69f8caf4891e?q=80&w=1200&auto=format&fit=crop">
+            </div>
+            <div class="p-3">
+              <h5 class="fw-bold">Wine Routes of France</h5>
+              <p class="mb-2 text-muted">Bordeaux, Burgundy & Champagne—our favorite tasting loops.</p>
+              <a href="france.html" class="btn btn-sm btn-primary">Read</a>
+            </div>
+          </article>
+        </div>
+        <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+          <article class="blog-card">
+            <div class="shine">
+              <img loading="lazy" class="w-100" alt="Switzerland" src="https://images.unsplash.com/photo-1523906630133-f6934a1ab2b9?q=80&w=1200&auto=format&fit=crop">
+            </div>
+            <div class="p-3">
+              <h5 class="fw-bold">Alpine Adventures</h5>
+              <p class="mb-2 text-muted">Zermatt to Interlaken: panoramas, chocolate & scenic rail.</p>
+              <a href="switzerland.html" class="btn btn-sm btn-primary">Read</a>
+            </div>
+          </article>
+        </div>
+        <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+          <article class="blog-card">
+            <div class="shine">
+              <img loading="lazy" class="w-100" alt="Spain" src="https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=1200&auto=format&fit=crop">
+            </div>
+            <div class="p-3">
+              <h5 class="fw-bold">Mediterranean Escapes</h5>
+              <p class="mb-2 text-muted">Barcelona, Seville & Valencia—sun, tapas and late nights.</p>
+              <a href="spain.html" class="btn btn-sm btn-primary">Read</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SOLUTIONS ========== -->
+  <section class="solutions">
+    <div class="container">
+      <h2 class="main-title" data-aos="fade-up">Solutions for Every Traveler</h2>
+      <div class="row g-4">
+        <div class="col-sm-6 col-lg-3" data-aos="fade-up">
+          <a class="tile d-block h-100 text-decoration-none" href="destinations.html">
+            <i class="fa-solid fa-umbrella-beach fa-2x text-primary"></i>
+            <h6 class="mt-2 fw-bold text-primary">Leisure</h6>
+            <p class="text-muted small mb-0">City breaks, coastlines & countryside.</p>
+          </a>
+        </div>
+        <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+          <a class="tile d-block h-100 text-decoration-none" href="packages.html">
+            <i class="fa-solid fa-suitcase-rolling fa-2x text-primary"></i>
+            <h6 class="mt-2 fw-bold text-primary">Packages</h6>
+            <p class="text-muted small mb-0">Curated, flexible, value-packed.</p>
+          </a>
+        </div>
+        <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+          <a class="tile d-block h-100 text-decoration-none" href="register.html">
+            <i class="fa-solid fa-user-plus fa-2x text-primary"></i>
+            <h6 class="mt-2 fw-bold text-primary">Register</h6>
+            <p class="text-muted small mb-0">Members-only perks & fast checkout.</p>
+          </a>
+        </div>
+        <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+          <a class="tile d-block h-100 text-decoration-none" href="reservation.html">
+            <i class="fa-solid fa-calendar-check fa-2x text-primary"></i>
+            <h6 class="mt-2 fw-bold text-primary">Reservations</h6>
+            <p class="text-muted small mb-0">Hassle-free, secure & supported.</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PARALLAX MOVING CLOUDS ========== -->
+  <div class="divider" aria-hidden="true">
+    <img class="mountain" alt="mountains" src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1920&q=80&auto=format&fit=crop">
+    <img class="cloud c1" alt="" src="https://www.transparentpng.com/thumb/cloud/cloud-png-transparent-image-3.png">
+    <img class="cloud c2" alt="" src="https://www.transparentpng.com/thumb/cloud/cloud-png-transparent-image-3.png">
+    <img class="cloud c3" alt="" src="https://www.transparentpng.com/thumb/cloud/cloud-png-transparent-image-3.png">
+    <img class="cloud c4" alt="" src="https://www.transparentpng.com/thumb/cloud/cloud-png-transparent-image-3.png">
+  </div>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container text-center">
+      <img class="logo mb-3" src="https://dummyimage.com/200x44/0a2a6b/ffffff&text=Euro+Travel" alt="Euro Travel">
+      <h3 class="fw-bold text-white mb-2">Travel Inspiration in Your Inbox</h3>
+      <p class="text-white-50">Exclusive offers, new routes & seasonal guides.</p>
+      <form class="row g-2 justify-content-center mt-2" action="#" onsubmit="event.preventDefault();alert('Thanks for subscribing!')">
+        <div class="col-md-6"><input required type="email" class="form-control form-control-lg" placeholder="Enter your email"></div>
+        <div class="col-auto d-grid"><button class="btn btn-lg">Subscribe</button></div>
+      </form>
+
+      <div class="row text-start mt-5">
+        <div class="col-sm-6 col-lg-3 mb-3">
+          <h6 class="text-uppercase text-white-50">Classic</h6>
+          <ul class="list-unstyled">
+            <li><a href="index.html">Travel (Home)</a></li>
+            <li><a href="destinations.html">Destinations</a></li>
+            <li><a href="packages.html">Packages</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-6 col-lg-3 mb-3">
+          <h6 class="text-uppercase text-white-50">Countries</h6>
+          <ul class="list-unstyled">
+            <li><a href="france.html">France</a></li>
+            <li><a href="netherlands.html">Netherlands</a></li>
+            <li><a href="italy.html">Italy</a></li>
+            <li><a href="switzerland.html">Switzerland</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-6 col-lg-3 mb-3">
+          <h6 class="text-uppercase text-white-50">More</h6>
+          <ul class="list-unstyled">
+            <li><a href="germany.html">Germany</a></li>
+            <li><a href="spain.html">Spain</a></li>
+            <li><a href="greece.html">Greece</a></li>
+            <li><a href="portugal.html">Portugal</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-6 col-lg-3 mb-3">
+          <h6 class="text-uppercase text-white-50">Company</h6>
+          <ul class="list-unstyled">
+            <li><a href="about.html">About us</a></li>
+            <li><a href="register.html">Register</a></li>
+            <li><a href="reservation.html">Reservation</a></li>
+            <li><a href="get-started.html">Get Started</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <div class="copyright">
+    Licensed by the Civil Aviation Authority | © 2025 Euro Travel | <a class="text-decoration-underline text-reset" href="privacy.html">Privacy</a> | <a class="text-decoration-underline text-reset" href="terms.html">Terms</a>
+  </div>
+
+  <!-- ========== QUICK QUOTE MODAL ========== -->
+  <div class="modal fade" id="quoteModal" tabindex="-1" aria-labelledby="quoteTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <form class="modal-content" onsubmit="event.preventDefault();alert('Thanks! We will email your quote shortly.');">
+        <div class="modal-header">
+          <h5 class="modal-title" id="quoteTitle">Get a Quick Quote</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row g-3">
+            <div class="col-md-6"><label class="form-label">Name</label><input required class="form-control" /></div>
+            <div class="col-md-6"><label class="form-label">Email</label><input type="email" required class="form-control" /></div>
+            <div class="col-md-6"><label class="form-label">Country</label>
+              <select class="form-select" required>
+                <option value="">Select…</option>
+                <option>France</option><option>Netherlands</option><option>Italy</option><option>Switzerland</option>
+                <option>Germany</option><option>Spain</option><option>Greece</option><option>Portugal</option>
+              </select>
+            </div>
+            <div class="col-md-6"><label class="form-label">Travel Month</label><input type="month" required class="form-control"></div>
+            <div class="col-12"><label class="form-label">Notes</label><textarea rows="3" class="form-control" placeholder="Interests, budget, special requests…"></textarea></div>
           </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button class="btn btn-primary">Send Request</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========== COOKIE BANNER + FALLBACK MODAL ========== -->
+  <div id="cookieBanner" class="cookie-banner">
+    <div class="d-flex flex-wrap align-items-center justify-content-between gap-2">
+      <div class="me-2 small">We use cookies to improve your experience. See our <a class="link-light text-decoration-underline" href="privacy.html" target="_blank">Privacy Policy</a>.</div>
+      <div class="d-flex gap-2">
+        <button class="btn btn-sm cookie-reject" id="cookieReject">Reject</button>
+        <button class="btn btn-sm cookie-accept" id="cookieAccept">Accept</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="cookieModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content p-4">
+        <h5 class="mb-2">Cookies & Privacy</h5>
+        <p class="mb-3">We use cookies to enhance your browsing. By clicking “Accept”, you agree to our policy.</p>
+        <div class="d-flex gap-2 justify-content-end">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Reject</button>
+          <button class="btn btn-primary" id="cookieModalAccept" data-bs-dismiss="modal">Accept</button>
         </div>
       </div>
     </div>
   </div>
-</header>
 
-<!-- DESTINATIONS -->
-<section class="container py-5">
-  <h2 class="text-center mb-4" data-aos="fade-up">Top Destinations</h2>
-  <div class="row g-4">
-    <div class="col-md-3" data-aos="zoom-in"><div class="card-dest"><img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800" class="w-100"><div class="overlay"><h5>France</h5><small>Paris, Provence</small></div></div></div>
-    <div class="col-md-3" data-aos="zoom-in" data-aos-delay="100"><div class="card-dest"><img src="https://images.unsplash.com/photo-1505761685-d7dcf42f0a3d?w=800" class="w-100"><div class="overlay"><h5>Netherlands</h5><small>Amsterdam, Tulips</small></div></div></div>
-    <div class="col-md-3" data-aos="zoom-in" data-aos-delay="200"><div class="card-dest"><img src="https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba?w=800" class="w-100"><div class="overlay"><h5>Italy</h5><small>Rome, Venice</small></div></div></div>
-    <div class="col-md-3" data-aos="zoom-in" data-aos-delay="300"><div class="card-dest"><img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?w=800" class="w-100"><div class="overlay"><h5>Spain</h5><small>Barcelona, Madrid</small></div></div></div>
-  </div>
-</section>
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ once: true, duration: 700, easing: 'ease-out-cubic' });
 
-<!-- FEATURED PACKAGES -->
-<section class="container py-5">
-  <h2 class="text-center mb-4" data-aos="fade-up">Featured Packages</h2>
-  <div class="row g-4">
-    <div class="col-md-4" data-aos="fade-right"><div class="bg-panel p-4 text-center"><h5>Romantic Paris</h5><p class="small text-muted">4 Nights • From $799</p><button class="btn btn-primary btn-sm">Explore</button></div></div>
-    <div class="col-md-4" data-aos="fade-up"><div class="bg-panel p-4 text-center"><h5>Tulip Escape</h5><p class="small text-muted">5 Nights • From $899</p><button class="btn btn-primary btn-sm">Explore</button></div></div>
-    <div class="col-md-4" data-aos="fade-left"><div class="bg-panel p-4 text-center"><h5>Italian Classics</h5><p class="small text-muted">7 Nights • From $999</p><button class="btn btn-primary btn-sm">Explore</button></div></div>
-  </div>
-</section>
+    // Simple headline typewriter
+    (function typewriter(){
+      const el = document.getElementById('typewriter');
+      const phrases = [
+        "Discover France, Netherlands, Italy & beyond.",
+        "Tailor-made routes—Paris, Amsterdam, Rome, Zurich.",
+        "Insider perks & 24/7 support. Travel smarter."
+      ];
+      let i=0, pos=0, forward=true;
+      setInterval(()=>{
+        const p = phrases[i];
+        el.textContent = p.slice(0,pos) + (pos%2 ? "▌" : " ");
+        if(forward){ pos++; if(pos>p.length+6){ forward=false; } }
+        else { pos--; if(pos<=0){ forward=true; i=(i+1)%phrases.length; } }
+      }, 55);
+    })();
 
-<!-- DEALS & OFFERS -->
-<section class="py-5 bg-panel">
-  <div class="container">
-    <h2 class="text-center mb-4" data-aos="fade-up">Seasonal Offers</h2>
-    <div class="row g-4">
-      <div class="col-md-4" data-aos="flip-left"><div class="card bg-dark text-white"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800" class="card-img"><div class="card-img-overlay d-flex flex-column justify-content-end"><h5>Summer in Greece</h5><p>Save 15% on packages</p></div></div></div>
-      <div class="col-md-4" data-aos="flip-up"><div class="card bg-dark text-white"><img src="https://images.unsplash.com/photo-1518684079-3c830dcef090?w=800" class="card-img"><div class="card-img-overlay d-flex flex-column justify-content-end"><h5>Winter Alps</h5><p>Special ski deals</p></div></div></div>
-      <div class="col-md-4" data-aos="flip-right"><div class="card bg-dark text-white"><img src="https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba?w=800" class="card-img"><div class="card-img-overlay d-flex flex-column justify-content-end"><h5>Italy Food Tour</h5><p>Gastronomy offers</p></div></div></div>
-    </div>
-  </div>
-</section>
+    // Counters on view
+    const counters = document.querySelectorAll('.counter');
+    const obs = new IntersectionObserver(entries=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          const el=e.target, target=+el.dataset.target;
+          let n=0, step=Math.max(1,Math.round(target/60));
+          const t=setInterval(()=>{ n+=step; if(n>=target){n=target;clearInterval(t)} el.textContent=n.toLocaleString(); }, 16);
+          obs.unobserve(el);
+        }
+      })
+    },{threshold:.5});
+    counters.forEach(c=>obs.observe(c));
 
-<!-- WHY CHOOSE US -->
-<section class="py-5">
-  <div class="container text-center">
-    <h2 data-aos="fade-up">Why Choose Euro Travel?</h2>
-    <div class="row g-4 mt-3">
-      <div class="col-md-4" data-aos="zoom-in"><div class="icon-pill"><i class="bi bi-star-fill"></i></div><h5>Expert Guides</h5><p class="text-muted small">Local knowledge & insider tips</p></div>
-      <div class="col-md-4" data-aos="zoom-in" data-aos-delay="150"><div class="icon-pill"><i class="bi bi-shield-lock"></i></div><h5>Secure & Trusted</h5><p class="text-muted small">Safe, worry-free bookings</p></div>
-      <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300"><div class="icon-pill"><i class="bi bi-heart-fill"></i></div><h5>Memorable Trips</h5><p class="text-muted small">Unique, curated experiences</p></div>
-    </div>
-  </div>
-</section>
+    // Cookie consent (banner first, modal as fallback)
+    const banner = document.getElementById('cookieBanner');
+    function acceptCookies(){ localStorage.setItem('cookiesAccepted','true'); banner.style.display='none'; }
+    function rejectCookies(){ banner.style.display='none'; }
+    window.addEventListener('load', ()=>{
+      if(!localStorage.getItem('cookiesAccepted')){
+        banner.style.display='block';
+        // if user ignores banner for 8s, also show modal
+        setTimeout(()=>{ if(banner.style.display==='block'){ new bootstrap.Modal('#cookieModal').show(); } }, 8000);
+      }
+      document.getElementById('cookieAccept').addEventListener('click', acceptCookies);
+      document.getElementById('cookieReject').addEventListener('click', rejectCookies);
+      document.getElementById('cookieModalAccept').addEventListener('click', acceptCookies);
+    });
 
-<!-- TESTIMONIALS -->
-<section class="container py-5">
-  <h2 class="text-center mb-4" data-aos="fade-up">Traveler Stories</h2>
-  <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner text-center">
-      <div class="carousel-item active"><p class="lead">“Euro Travel made our honeymoon in Paris stress-free & magical!”</p><small class="text-muted">– Sarah & John</small></div>
-      <div class="carousel-item"><p class="lead">“Cycling in tulip fields was a dream come true. Perfect planning.”</p><small class="text-muted">– Liam K.</small></div>
-      <div class="carousel-item"><p class="lead">“Every detail in Italy was flawless. Food, art, memories forever.”</p><small class="text-muted">– Maria G.</small></div>
-    </div>
-  </div>
-</section>
-
-<!-- NEWSLETTER -->
-<section class="py-5 bg-panel">
-  <div class="container text-center">
-    <h3>Stay Inspired</h3>
-    <p class="text-muted">Get exclusive offers & travel tips</p>
-    <form class="row g-2 justify-content-center" onsubmit="event.preventDefault();document.getElementById('nlMsg').textContent='Subscribed!';">
-      <div class="col-md-4"><input type="email" class="form-control" placeholder="Your email" required></div>
-      <div class="col-md-2"><button class="btn btn-primary w-100">Subscribe</button></div>
-    </form>
-    <div id="nlMsg" class="text-success mt-2"></div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="pt-5 pb-3">
-  <div class="container text-center">
-    <p>© <script>document.write(new Date().getFullYear())</script> Euro Travel | <a href="#">Privacy Policy</a></p>
-    <div class="mt-2">
-      <a href="#" class="me-3"><i class="bi bi-facebook"></i></a>
-      <a href="#" class="me-3"><i class="bi bi-instagram"></i></a>
-      <a href="#" class="me-3"><i class="bi bi-twitter"></i></a>
-      <a href="#"><i class="bi bi-linkedin"></i></a>
-    </div>
-  </div>
-</footer>
-
-<!-- Floating Book Now -->
-<a href="#" class="book-bar"><i class="bi bi-calendar-check me-1"></i> Book Now</a>
-
-<!-- Cookie Banner -->
-<div class="cookie-banner" id="cookieBanner">
-  <div class="container d-flex justify-content-between align-items-center">
-    <span>This site uses cookies to improve your experience. <a href="#" class="text-primary">Learn more</a></span>
-    <button class="btn btn-primary btn-sm" onclick="acceptCookies()">Accept</button>
-  </div>
-</div>
-
-<!-- Scripts -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-  AOS.init({ once:true, duration:800 });
-  function acceptCookies(){document.getElementById('cookieBanner').style.display='none';localStorage.setItem('cookiesAccepted','true');}
-  if(!localStorage.getItem('cookiesAccepted')){document.getElementById('cookieBanner').style.display='block';}
-</script>
+    // Arrow keys helper (fake slide cue)
+    window.addEventListener('keydown', (e)=>{
+      if(['ArrowLeft','ArrowRight'].includes(e.key)){
+        document.querySelector('.hero .wrap').animate([{transform:'translateY(0)'},{transform:'translateY(-4px)'}],{duration:220});
+      }
+    });
+  </script>
 </body>
 </html>
