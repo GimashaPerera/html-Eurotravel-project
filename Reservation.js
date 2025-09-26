@@ -1,22 +1,20 @@
 // ---------------- Clock ----------------
 function updateClock() {
-    var now = new Date();
-    var h = now.getHours();
-    var m = now.getMinutes();
-    var s = now.getSeconds();
-    if (h < 10) h = "0" + h;
-    if (m < 10) m = "0" + m;
-    if (s < 10) s = "0" + s;
-    document.getElementById('navClock').textContent = h + ":" + m + ":" + s;
+    const now = new Date();
+    let h = now.getHours(), m = now.getMinutes(), s = now.getSeconds();
+    h = h < 10 ? "0" + h : h;
+    m = m < 10 ? "0" + m : m;
+    s = s < 10 ? "0" + s : s;
+    document.getElementById('navClock').textContent = `${h}:${m}:${s}`;
 }
 setInterval(updateClock, 1000);
 updateClock();
 
 // ---------------- Background Slideshow ----------------
-
-var slides = document.getElementsByClassName('bg-slide');
-var currentSlide = 0;
+const slides = document.querySelectorAll('.bg-slide');
+let currentSlide = 0;
 slides[currentSlide].classList.add("active");
+
 function nextSlide() {
     slides[currentSlide].classList.remove("active");
     currentSlide = (currentSlide + 1) % slides.length;
@@ -24,62 +22,129 @@ function nextSlide() {
 }
 setInterval(nextSlide, 5000);
 
-
 // ---------------- Calculate Cost ----------------
-
-
-document.getElementById('toDate').addEventListener('change', calculateCost);
-document.getElementById('fromDate').addEventListener('change', calculateCost);
-document.getElementById('package').addEventListener('change', calculateCost);
-document.getElementById('people').addEventListener('input', calculateCost);
+const calcFields = ['toDate', 'fromDate', 'package', 'people'];
+calcFields.forEach(id => document.getElementById(id).addEventListener('input', calculateCost));
 
 function calculateCost() {
-    
-    var pkg = document.getElementById('package').value;
-    var people1 = parseInt(document.getElementById('people').value);
-    var fromDate1 = new Date(document.getElementById('fromDate').value);
-    var toDate1 = new Date(document.getElementById('toDate').value);
+    const pkg = document.getElementById('package').value;
+    const people = parseInt(document.getElementById('people').value);
+    const fromDate = new Date(document.getElementById('fromDate').value);
+    const toDate = new Date(document.getElementById('toDate').value);
 
-    if (!pkg || !people1 || !fromDate1 || !toDate1 ) {
-         document.getElementById('calculationResult').textContent = "";;
+    if (!pkg || !people || !fromDate || !toDate) {
+        document.getElementById('calculationResult').textContent = "";
         return;
     }
-    var people = people1;
-    var fromDate = fromDate1;
-    var toDate = toDate1;
 
     if (toDate <= fromDate) {
         alert("⚠️ To date must be after From date.");
         return;
     }
 
-    var pkgParts = pkg.split(",");
-    var country = pkgParts[0];
-    var costPerPerson = parseFloat(pkgParts[1]);
-    
-    //days calculation
-    var DayDiff = toDate.getTime() - fromDate.getTime();
-    var days = Math.ceil(DayDiff/ (1000 * 60 * 60 * 24));
-
-    //calculation of total cost
-    var totalCost = costPerPerson * people *days; 
+    const [country, costPerPerson] = pkg.split(",");
+    const days = Math.ceil((toDate - fromDate) / (1000 * 60 * 60 * 24));
+    const totalCost = costPerPerson * people * days;
 
     document.getElementById('calculationResult').textContent =
-        `Package: ${country}, Pax: ${people}, Days: ${days},  Total Cost: $${totalCost}`;
-};
-
+        `Package: ${country}, Pax: ${people}, Days: ${days}, Total Cost: $${totalCost}`;
+}
 
 // ---------------- Form Submit ----------------
-var form = document.getElementById('reservationForm');
-form.onsubmit = function (e) {
-    e.preventDefault();
-    alert("Reservation submitted successfully!");
-    form.reset();
-    document.getElementById('calculationResult').textContent = "";
-};
 
-document.getElementById('botSend').onclick = () => {
-    const input = document.getElementById('botInput').value;
-    if(input) alert("Bot: Thanks for your message! We'll get back to you soon.");
-    document.getElementById('botInput').value = '';
-};
+document.getElementById("reservationForm").addEventListener("submit", function(e) {
+    e.preventDefault(); // stop default form submit
+
+    let formData = new FormData(this);
+
+    fetch("EcoTravel.php", {
+        method: "POST",
+        body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+        if (data.trim() === "success") {
+            // Show popup
+            showPopup("✅ Reservation Successful");
+
+            // Redirect after a short delay
+            setTimeout(() => {
+                window.location.href = "Register.html";
+            }, 1500); // 1.5 seconds delay
+        } else {
+            showPopup("❌ Error saving reservation");
+        }
+    })
+    .catch(err => console.error(err));
+});
+
+function showPopup(message) {
+    let popup = document.createElement("div");
+    popup.textContent = message;
+    popup.style.position = "fixed";
+    popup.style.bottom = "20px";
+    popup.style.left = "50%";
+    popup.style.transform = "translateX(-50%)";
+    popup.style.background = "#2b6de8";
+    popup.style.color = "white";
+    popup.style.padding = "12px 20px";
+    popup.style.borderRadius = "10px";
+    popup.style.boxShadow = "0px 0px 10px rgba(0,0,0,0.5)";
+    popup.style.zIndex = "10000";
+    document.body.appendChild(popup);
+
+    setTimeout(() => {
+        popup.remove();
+    }, 1500);
+}
+
+
+//--------------------------- chatbot------------------
+const chatIcon = document.getElementById('chatIcon');
+const chatPopup = document.getElementById('chatPopup');
+const closeChat = document.getElementById('closeChat');
+const chatBody = document.getElementById('chatBody');
+const chatInput = document.getElementById('chatInput');
+
+let isOpen = false;
+
+// Toggle popup on icon click
+chatIcon.addEventListener('click', () => {
+    isOpen = !isOpen;
+    chatPopup.style.display = isOpen ? 'flex' : 'none';
+});
+
+// Close button click
+closeChat.addEventListener('click', () => {
+    chatPopup.style.display = 'none';
+    isOpen = false;
+});
+
+// Send message
+function sendMessage() {
+    let msg = chatInput.value.trim();
+    if (!msg) return;
+
+    // User message
+    let userMsg = document.createElement('div');
+    userMsg.classList.add('message', 'user');
+    userMsg.textContent = msg;
+    chatBody.appendChild(userMsg);
+
+    // Bot response
+    let botMsg = document.createElement('div');
+    botMsg.classList.add('message', 'bot');
+    botMsg.textContent = "You said: " + msg;
+    chatBody.appendChild(botMsg);
+
+    // Scroll to latest message
+    chatBody.scrollTop = chatBody.scrollHeight;
+
+    chatInput.value = '';
+    chatInput.focus();
+}
+
+// Send on Enter key
+chatInput.addEventListener("keypress", function(e) {
+    if (e.key === "Enter") sendMessage();
+});
