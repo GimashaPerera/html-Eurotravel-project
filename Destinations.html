@@ -33,11 +33,17 @@
   <main class="main-content">
     <div class="container">
       <div class="gallery">
+        <!-- Repeatable destination blocks -->
+         <!-- Paper Plane Animation -->
+<div id="plane-container">
+  <img src="images/paper_plane.png" id="paperPlane" alt="Flying Paper Plane">
+</div>
+
         <div class="destination">
           <img src="images/Switz.jpg" alt="Switzerland" />
           <button onclick="location.href='switzerland-itinerary.html'">View Switzerland</button>
         </div>
-        <div class="destination">
+         <div class="destination">
           <img src="images/france.jpg" alt="France" />
           <button onclick="location.href='france-itinerary.html'">View France</button>
         </div>
@@ -69,30 +75,10 @@
     </div>
   </main>
 
-  <!-- Clock & Slideshow Script -->
-  <script>
-    function updateClock() {
-      const now = new Date();
-      let h = now.getHours();
-      let m = now.getMinutes();
-      let s = now.getSeconds();
-      if (h < 10) h = "0" + h;
-      if (m < 10) m = "0" + m;
-      if (s < 10) s = "0" + s;
-      document.getElementById('navClock').textContent = h + ":" + m + ":" + s;
-    }
-    setInterval(updateClock, 1000);
-    updateClock();
+  <!-- Floating Bubbles Animation -->
+  <div id="bubble-container"></div>
 
-    const slides = document.getElementsByClassName('bg-slide');
-    let currentSlide = 0;
-    slides[currentSlide].classList.add("active");
-    function nextSlide() {
-      slides[currentSlide].classList.remove("active");
-      currentSlide = (currentSlide + 1) % slides.length;
-      slides[currentSlide].classList.add("active");
-    }
-    setInterval(nextSlide, 5000);
-  </script>
+  <!-- External JS -->
+  <script src="Destinations.js"></script>
 </body>
 </html>
