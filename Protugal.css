@@ -40,6 +40,13 @@ body {
     font-weight: bold;
     font-size: 30px;
 }
+.nav-logofont {
+    font-weight: bold;
+    font-size: 25px;
+    margin-right: auto;
+    padding-left: 20px;
+   
+}
 
 .nav-links {
     list-style: none;
@@ -65,7 +72,6 @@ body {
     color: #FFD700;
 }
 
-/* ---------------- Hero Section ---------------- */
 .background {
     position: relative;
     height: 70vh;
@@ -148,10 +154,11 @@ body {
 .btn:hover {
     background-color: #3799db;
 }
+.btn1:hover {
+    background-color: #3799db;
+}
 
 
-
-/* ---------------- Main Content ---------------- */
 .container {
     display: flex;
     gap: 20px;
@@ -159,7 +166,6 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     margin-top: 90px;
-    /* offset for navbar */
     flex-wrap: wrap;
 }
 
@@ -168,7 +174,7 @@ body {
 }
 
 .MidHeading {
-    font-size: 2em;
+    font-size: 32px;
 }
 
 .right-column {
@@ -321,19 +327,11 @@ li {
     .footer-social {
         justify-content: center;
     }
-
-    .hero-text h1 {
-        font-size: 2.2rem;
-    }
-
-    .hero-text p {
-        font-size: 1rem;
-    }
 }
 
 /*-----------Low Heading---------*/
 .lowHeading {
-    font-size: 2em;
+    font-size: 32px;
     text-align: center;
 }
 
@@ -381,7 +379,7 @@ li {
     border-radius: 20%;
     padding: 10px;
     z-index: 100;
-    transition: background 0.1s;
+    
 }
 
 .arrow:hover {
@@ -400,7 +398,6 @@ li {
 @media (max-width: 768px) {
     .carousel-slide {
         min-width: 50%;
-        /* 2 images visible on mobile */
     }
 }
 
@@ -411,7 +408,7 @@ li {
     flex-direction: column;
     gap: 20px;
     margin: 0 auto;
-    /* centers it */
+
 }
 
 /* Description */
