@@ -5,8 +5,7 @@
 
   <title>Register - Euro Travel</title>
   <link rel="stylesheet" href="Register.css" />
-  <link rel="stylesheet" href="chat.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
 
 <body>
@@ -43,7 +42,7 @@
       Indulge in world-famous cuisine in Italy, explore medieval castles in Germany,
       marvel at the architectural masterpieces in Spain, or stroll through the charming villages of France.
       With Euro Travel, planning your European adventure has never been easier —
-      whether it’s a relaxing getaway, a thrilling adventure, or a cultural exploration,
+      whether it's a relaxing getaway, a thrilling adventure, or a cultural exploration,
       we bring the beauty of Europe right to your fingertips.
       Let your journey begin here and experience Europe like never before!
 
@@ -61,10 +60,10 @@
 
 
 
-    <form id="register-form" onsubmit="return validateForm()">
+    <form id="register-form" onsubmit="return validateForm()" method="POST" action="Eurotravel.php">
 
-      <label for="fullname">Full Name</label>
-      <input type="text" id="fullname" name="fullname" required />
+      <label for="Fullname">Full Name</label>
+      <input type="text" id="Fullname" name="Fullname" required />
 
       <label for="tel">Contact No</label>
       <input type="text" id="tel" name="tel" required />
@@ -82,11 +81,12 @@
       <input type="password" id="confirm-password" name="confirm-password" required />
 
       <button type="submit">Register</button>
-    </form>
-
-    <div class="success-message" id="successMessage"> <!-- this is for submition successful message-->
+      <div class="success-message" id="successMessage"> 
       ✅ Registration Successful (Simulated)
     </div>
+    </form>
+
+
 
   </div>
 
@@ -105,10 +105,11 @@
     setInterval(nextSlide, 5000);
 
     function validateForm() {
+      var Fullname=document.getElementById('Fullname').value.trim();
       var email = document.getElementById('email').value.trim();
       var password = document.getElementById('password').value;
-      var confirmPassword = document.getElementById('confirm-password').value;
       var tel = document.getElementById('tel').value.trim();
+      var confirmPassword = document.getElementById('confirm-password').value;
 
 
       if (password !== confirmPassword) {
@@ -129,19 +130,15 @@
         alert("telephone must be 10 Digits");
         return false;
       }
+    
+      
+          return true;
 
 
-      //  Show success message
-      document.getElementById("successMessage").style.display = "block";
-
-      //  clear form
       document.getElementById("register-form").reset();
 
-      return false;
+   
 
-      // load main page after waiting 1.5 seconds
-      setTimeout(function () { window.location.href = "main.html"; }, 1500);
-      return false;
     }
   </script>
 
