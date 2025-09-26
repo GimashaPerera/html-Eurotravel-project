@@ -58,7 +58,7 @@ body {
     font-size: 20px;
 }
 
-/* Container & Form */
+/* Container Form */
 .container {
     width: 90%;
     max-width: 600px;
@@ -127,13 +127,13 @@ button:hover {
     background-color: #003fbb;
 }
 
-/* Chat Icon (matching dark-blue theme) */
+/* Chat Icon */
 .chat-icon {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background: #0A3D62; /* same as navbar/bg */
-    color: #00f0ff; /* neon accent */
+    background: #0A3D62;
+    color: #00f0ff; 
     width: 60px;
     height: 60px;
     border-radius: 50%;
@@ -166,18 +166,16 @@ button:hover {
     background: #0A3D62ee;
     color: #fff;
     z-index: 1001;
-
-    /* Flex alignment */
     justify-content: flex-start;
     align-items: stretch;
 }
 
 
 /* Popup Animation */
-@keyframes popupSlide {
-    0% { transform: translateY(50px) scale(0.9); opacity: 0; }
-    100% { transform: translateY(0) scale(1); opacity: 1; }
+.popup {
+    animation: popupSlide 0.5s ease-out forwards;
 }
+
 
 /* Chat Header */
 .chat-header {
@@ -242,7 +240,7 @@ button:hover {
 
 .message.user {
     align-self: flex-end;
-    background: #094974; /* dark user bubble */
+    background: #094974;
     color: #00f0ff;
     box-shadow: 0 0 5px #00f0ff44;
 }
@@ -353,17 +351,17 @@ button:hover {
 }
 
 /* Responsive */
-@media (max-width: 768px) {
-    .footer-row {
-        flex-direction: column;
-        text-align: center;
-    }
+.footer-row {
+    display: flex;
+    flex-direction: row;
+    text-align: left;
+}
 
-    .footer-social {
-        justify-content: center;
-    }
+.footer-social {
+    display: flex;
+    justify-content: flex-start;
+}
 
-    .footer-container {
-        padding: 30px 20px;
-    }
+.footer-container {
+    padding: 30px;
 }
