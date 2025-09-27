@@ -5,24 +5,26 @@
     <title>Portugal Travel</title>
     <link rel="stylesheet" href="Protugal.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 </head>
 
 <body>
 
-    <!-- Navbar -->
     <nav class="navbar">
-        <div class="nav-logo">Euro Travel</div>
+        <div class="nav-logo"><img src="images/Euro Travels (1).png" width="50px" height="50px"></div>
+        <div class="nav-logofont">Euro Travel</div>
         <ul class="nav-links">
             <li><a href="homepage.html">Home</a></li>
             <li><a href="aboutus.html">About</a></li>
-            <li><a href="register.html">Register</a></li>
             <li><a href="reservation.html">Packages</a></li>
+
             </div>
-        </li>
+            </li>
         </ul>
-             <a class="btn1 btn-warning1" href="html-Eurotravel-project/GetStarted.html">
-            <i class="bi bi-calendar-check me-1"></i>Get Started</a>
+        <a href="contact.html?subject=Planning%20Portugal" class="btn btn-outline">Login</a>
+        <a class="btn1 btn-warning1" href="Register.html">
+            <i class="bi bi-calendar-check me-1"></i>Sign Up</a>
+
     </nav>
 
     <section class="background">
@@ -239,42 +241,42 @@
         const setSlidePosition = () => {
             slides.forEach((slide, index) => {
                 slide.style.left = slideWidth * index + 'px';
-        });
-    };
-    setSlidePosition();
-
-    // Move to slide
-    const moveToSlide = (index) => {
-        track.style.transform = 'translateX(-' + slides[index].style.left + ')';
-        currentIndex = index;
-    };
-
-    // Next Button
-    nextButton.addEventListener('click', () => {
-        let nextIndex = currentIndex + 1;
-        if (nextIndex > slides.length - 3) nextIndex = 0;
-        moveToSlide(nextIndex);
-    });
-
-    // Prev Button
-    prevButton.addEventListener('click', () => {
-        let prevIndex = currentIndex - 1;
-        if (prevIndex < 0) prevIndex = slides.length - 3;
-        moveToSlide(prevIndex);
-    });
-
-    // Auto-slide
-    setInterval(() => {
-        let nextIndex = currentIndex + 1;
-        if (nextIndex > slides.length - 3) nextIndex = 0;
-        moveToSlide(nextIndex);
-    }, 3000);
-
-    // Resize
-    window.addEventListener('resize', () => {
-        slideWidth = slides[0].getBoundingClientRect().width;
+            });
+        };
         setSlidePosition();
-    });
+
+        // Move to slide
+        const moveToSlide = (index) => {
+            track.style.transform = 'translateX(-' + slides[index].style.left + ')';
+            currentIndex = index;
+        };
+
+        // Next Button
+        nextButton.addEventListener('click', () => {
+            let nextIndex = currentIndex + 1;
+            if (nextIndex > slides.length - 3) nextIndex = 0;
+            moveToSlide(nextIndex);
+        });
+
+        // Prev Button
+        prevButton.addEventListener('click', () => {
+            let prevIndex = currentIndex - 1;
+            if (prevIndex < 0) prevIndex = slides.length - 3;
+            moveToSlide(prevIndex);
+        });
+
+        // Auto-slide
+        setInterval(() => {
+            let nextIndex = currentIndex + 1;
+            if (nextIndex > slides.length - 3) nextIndex = 0;
+            moveToSlide(nextIndex);
+        }, 3000);
+
+        // Resize
+        window.addEventListener('resize', () => {
+            slideWidth = slides[0].getBoundingClientRect().width;
+            setSlidePosition();
+        });
 
     </script>
 </body>
