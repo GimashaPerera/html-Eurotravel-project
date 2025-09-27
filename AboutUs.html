@@ -5,47 +5,47 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>About Us - Euro Travel</title>
 
-  <!-- keep your existing header/footer styles -->
   <link rel="stylesheet" href="Register.css">
-  <!-- new about page styles -->
   <link rel="stylesheet" href="AboutUs.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <script defer src="AboutUs.js"></script>
 </head>
 <body>
 
-  <!-- ===== HEADER (unchanged) ===== -->
-  <nav class="navbar">
-    <div class="nav-logo"><img src="images/Euro-remove" width="50px" height="50px" alt="logo"></div>
-    <div class="nav-logofont">Euro Travel</div>
-    <ul class="nav-links">
-      <li><a href="Homepage.html">Home</a></li>
-      <li><a href="aboutus.html" class="active">About</a></li>
-      <li><a href="Reservation.html">Packages</a></li>
-    </ul>
-    <a href="contact.html?subject=Planning%20Portugal" class="btn btn-outline">Login</a>
-    <a class="btn1 btn-warning1" href="HomePage.html">
-      <i class="bi bi-calendar-check me-1"></i>Go Back</a>
-  </nav>
-  <!-- ===== end header ===== -->
+  <header class="main-header">
+    <div class="header-content">
+      <div class="logo">
+        <img src="images/Euro_Travels__2_-removebg-preview.png" alt="Euro Travel Logo" class="logo-image">
+        <span class="tagline">DISCOVER EUROPE, DISCOVER YOURSELF</span>
+      </div>
 
-  <!-- ===== ABOUT CONTENT (paste into page body) ===== -->
-  <!-- Hero Section -->
-<section class="hero-section">
-  <img src="images/About us.jpeg" class="hero-img" alt="Euro Travels">
-  <div class="hero-overlay">
-    <div class="hero-text">
-      <h1>About Us</h1>
-      <p>Crafting memorable journeys across Europe with trusted expertise and care.</p>
-      <a href="Reservation.html" class="btn btn-warning">Explore Packages</a>
-      <a href="#contact" class="btn btn-outline">Get in Touch</a>
+      <nav class="main-nav">
+        <ul class="nav-links">
+          <li><a href="Homepage.html">HOME</a></li>
+          
+          <li class="active"><a href="aboutus.html">ABOUT US</a></li>
+          
+          <li><a href="Reservation.html">PACKAGES</a></li>
+          <li><a href="contact.html?subject=Login">LOGIN</a></li>
+          <li><a href="HomePage.html">CONTACT</a></li>
+        </ul>
+      </nav>
     </div>
-  </div>
-</section>
+  </header>
+  <section class="hero-section">
+    <img src="images/About us.jpeg" class="hero-img" alt="Euro Travels">
+    <div class="hero-overlay">
+      <div class="hero-text">
+        <h1>About Us</h1>
+        <p>Crafting memorable journeys across Europe with trusted expertise and care.</p>
+        <a href="Reservation.html" class="btn btn-warning">Explore Packages</a>
+        <a href="#contact" class="btn btn-outline">Get in Touch</a>
+      </div>
+    </div>
+  </section>
 
 
   <main class="container about-main">
-    <!-- Intro -->
     <section id="about-intro" class="reveal">
       <h2>About Euro Travel</h2>
       <p class="muted">Euro Travel is a specialist travel company dedicated to crafting memorable, worry-free holidays across Europe. With a passionate team of travel consultants and strong local partnerships, we design personalised itineraries — whether it's a romantic getaway in Venice, a food and wine tour in Tuscany, or an activity-packed trip to the Alps.</p>
@@ -53,7 +53,6 @@
       <p>We combine years of industry experience with local knowledge to ensure each trip runs smoothly. Our consultants handle everything from flights and transfers to accommodations, guided tours and special requests so you can enjoy a seamless travel experience.</p>
     </section>
 
-    <!-- Certification & Quality -->
     <section id="certification" class="reveal">
       <div class="cert-grid">
         <div class="cert-text">
@@ -63,6 +62,7 @@
             <li>IATA accredited partners</li>
             <li>Preferred supplier relationships across Europe</li>
             <li>Secure booking & payments</li>
+            <li>Fully compliant with EU travel regulations</li>
           </ul>
         </div>
         <div class="cert-visual">
@@ -72,7 +72,6 @@
       </div>
     </section>
 
-    <!-- Branches -->
     <section id="branches" class="reveal">
       <h3>Branches & Network</h3>
       <div class="branches-row">
@@ -91,7 +90,6 @@
       </div>
     </section>
 
-    <!-- Partners -->
     <section id="partners" class="reveal">
       <h3>Our Partners</h3>
       <div class="partners-row">
@@ -107,13 +105,11 @@
       </div>
     </section>
 
-    <!-- Parent / Company blurb -->
     <section class="reveal">
       <h3>About Our Company</h3>
       <p class="muted">Founded by a team of travel experts, Euro Travel combines corporate reliability with small-team care. We focus on exceptional customer service and building long-term relationships with travellers and suppliers.</p>
     </section>
 
-    <!-- Vision / Mission / Values -->
     <section class="mvm reveal">
       <h3>Vision • Mission • Values</h3>
       <div class="mvm-grid">
@@ -137,7 +133,6 @@
       </div>
     </section>
 
-    <!-- Newsletter -->
     <section class="reveal">
       <div class="newsletter-card lift">
         <div>
@@ -151,7 +146,6 @@
       </div>
     </section>
 
-    <!-- Contact CTA -->
     <section id="contact" class="reveal cta-strip">
       <div class="cta-inner">
         <h4>Ready to plan your European escape?</h4>
@@ -160,7 +154,6 @@
     </section>
   </main>
 
-  <!-- ===== FOOTER (unchanged) ===== -->
   <footer class="site-footer">
     <div class="footer-container">
       <div class="footer-row">
@@ -204,7 +197,5 @@
       <p>© 2025 Euro Travel. All Rights Reserved.</p>
     </div>
   </footer>
-  <!-- ===== end footer ===== -->
-
 </body>
 </html>

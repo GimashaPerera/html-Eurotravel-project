@@ -1,5 +1,5 @@
 /* AboutUs.css - styles focused on the About content only.
-   Header/footer keep using your Register.css, so class names there were preserved.
+    Header/footer keep using your Register.css, so class names there were preserved.
 */
 
 :root{
@@ -12,10 +12,111 @@
 }
 
 /* page base */
-body { background: linear-gradient(180deg,var(--bg-start),#eef4fb); color:#0f1724; font-family: 'Segoe UI', Roboto, Arial; }
+body { 
+    /* KEY CHANGE: Add padding-top to compensate for the fixed header height (~100px) */
+    padding-top: 100px;
+    background: linear-gradient(180deg,var(--bg-start),#eef4fb); 
+    color:#0f1724; 
+    font-family: 'Segoe UI', Roboto, Arial; 
+}
 
 /* container helper */
 .container { max-width:1150px; margin:0 auto; padding:0 20px; }
+
+/* ---------------------------------------------------- */
+/* --- FIXED HEADER STYLES (UPDATED BACKGROUND & COLORS) --- */
+/* ---------------------------------------------------- */
+
+.main-header {
+    /* CHANGED: Background to brand blue */
+    background: var(--brand); 
+    position: fixed; 
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 10px 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Slightly darker shadow for contrast */
+    transition: background 0.3s var(--ease);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Logo Styling */
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.logo-image {
+    height: 55px;
+    margin-bottom: 2px;
+}
+
+.tagline {
+    display: block;
+    font-size: 10px;
+    /* CHANGED: Color to white for visibility */
+    color: #fff; 
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+/* Navigation Menu */
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.main-nav ul li {
+    text-align: center;
+    padding: 0 5px;
+}
+
+.main-nav ul li a {
+    /* CHANGED: Text color to white */
+    color: #fff; 
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    line-height: 1.2;
+    padding: 10px 0;
+    transition: color 0.3s;
+    display: block;
+}
+
+/* Removed styles for the second line of text (<small>) as it's no longer used */
+/* .main-nav ul li a small { ... } */
+
+/* Active State Styles */
+.main-nav ul li.active {
+    /* CHANGED: Accent color underline */
+    border-bottom: 3px solid var(--accent); 
+    padding-bottom: 12px;
+}
+
+.main-nav ul li.active a,
+.main-nav ul li a:hover {
+    /* CHANGED: Active/hover text color to accent yellow */
+    color: var(--accent); 
+}
+
+
+/* ---------------------------------------------------- */
+/* --- Existing Styles (Below this line) --- */
+/* ---------------------------------------------------- */
+
 /* Hero Section */
 .hero-section {
   position: relative;
@@ -71,7 +172,7 @@ body { background: linear-gradient(180deg,var(--bg-start),#eef4fb); color:#0f172
 }
 
 .hero-text .btn-warning {
-  background: #f7c04a;
+  background:#f7c04a ;
   color: #000;
 }
 
@@ -153,6 +254,12 @@ body { background: linear-gradient(180deg,var(--bg-start),#eef4fb); color:#0f172
   .cta-inner{ flex-direction:column; align-items:start; }
 }
 @media (max-width:720px){
+  /* Adjustments for fixed header on small screens */
+  body{ padding-top: 130px; } /* Give extra space on mobile if header wraps */
+  
+  .header-content{ flex-direction: column; text-align:center; }
+  .main-nav ul{ justify-content:center; margin-top: 10px; }
+  
   .about-hero{ padding:26px 14px; margin-top:72px; }
   .hero-title{ font-size:1.6rem; text-align:center; }
   .hero-inner{ text-align:center; }
