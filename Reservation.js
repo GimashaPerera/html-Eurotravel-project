@@ -1,24 +1,29 @@
-// ---------------- Clock ----------------
+// ---------------- Time----------------
 function updateClock() {
-    const now = new Date();
-    let h = now.getHours(), m = now.getMinutes(), s = now.getSeconds();
-    h = h < 10 ? "0" + h : h;
-    m = m < 10 ? "0" + m : m;
-    s = s < 10 ? "0" + s : s;
-    document.getElementById('navClock').textContent = `${h}:${m}:${s}`;
+    var now = new Date();
+    var h = now.getHours();
+    var m = now.getMinutes();
+    var s = now.getSeconds();
+
+    if (h < 10) { h = "0" + h; }
+    if (m < 10) { m = "0" + m; }
+    if (s < 10) { s = "0" + s; }
+
+    document.getElementById("navClock").innerHTML = h + ":" + m + ":" + s;
 }
 setInterval(updateClock, 1000);
 updateClock();
 
 // ---------------- Background Slideshow ----------------
-const slides = document.querySelectorAll('.bg-slide');
-let currentSlide = 0;
-slides[currentSlide].classList.add("active");
+var slides = document.getElementsByClassName('bg-slide');
+var currentSlide = 0;
+slides[currentSlide].className += " active";
 
 function nextSlide() {
-    slides[currentSlide].classList.remove("active");
-    currentSlide = (currentSlide + 1) % slides.length;
-    slides[currentSlide].classList.add("active");
+    slides[currentSlide].className = slides[currentSlide].className.replace(" active", "");
+    currentSlide++;
+    if (currentSlide >= slides.length) { currentSlide = 0; }
+    slides[currentSlide].className += " active";
 }
 setInterval(nextSlide, 5000);
 
@@ -52,30 +57,18 @@ function calculateCost() {
 
 // ---------------- Form Submit ----------------
 
-document.getElementById("reservationForm").addEventListener("submit", function(e) {
-    e.preventDefault(); // stop default form submit
-
-    let formData = new FormData(this);
-
-    fetch("EcoTravel.php", {
-        method: "POST",
-        body: formData
-    })
-    .then(response => response.text())
-    .then(data => {
-        if (data.trim() === "success") {
-            // Show popup
-            showPopup("✅ Reservation Successful");
-
-            // Redirect after a short delay
-            setTimeout(() => {
-                window.location.href = "Register.html";
-            }, 1500); // 1.5 seconds delay
-        } else {
-            showPopup("❌ Error saving reservation");
-        }
-    })
-    .catch(err => console.error(err));
+form.addEventListener("submit", function (e) {
+    if (
+        !form.package.value ||
+        !form.people.value ||
+        !form.fromDate.value ||
+        !form.toDate.value
+    ) {
+        e.preventDefault();
+        alert("⚠️ Please fill all fields");
+    } else {
+        alert("✅ Reservation Successful");
+    }
 });
 
 function showPopup(message) {
@@ -99,52 +92,4 @@ function showPopup(message) {
 }
 
 
-//--------------------------- chatbot------------------
-const chatIcon = document.getElementById('chatIcon');
-const chatPopup = document.getElementById('chatPopup');
-const closeChat = document.getElementById('closeChat');
-const chatBody = document.getElementById('chatBody');
-const chatInput = document.getElementById('chatInput');
 
-let isOpen = false;
-
-// Toggle popup on icon click
-chatIcon.addEventListener('click', () => {
-    isOpen = !isOpen;
-    chatPopup.style.display = isOpen ? 'flex' : 'none';
-});
-
-// Close button click
-closeChat.addEventListener('click', () => {
-    chatPopup.style.display = 'none';
-    isOpen = false;
-});
-
-// Send message
-function sendMessage() {
-    let msg = chatInput.value.trim();
-    if (!msg) return;
-
-    // User message
-    let userMsg = document.createElement('div');
-    userMsg.classList.add('message', 'user');
-    userMsg.textContent = msg;
-    chatBody.appendChild(userMsg);
-
-    // Bot response
-    let botMsg = document.createElement('div');
-    botMsg.classList.add('message', 'bot');
-    botMsg.textContent = "You said: " + msg;
-    chatBody.appendChild(botMsg);
-
-    // Scroll to latest message
-    chatBody.scrollTop = chatBody.scrollHeight;
-
-    chatInput.value = '';
-    chatInput.focus();
-}
-
-// Send on Enter key
-chatInput.addEventListener("keypress", function(e) {
-    if (e.key === "Enter") sendMessage();
-});

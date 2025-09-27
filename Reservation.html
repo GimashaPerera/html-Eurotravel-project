@@ -1,9 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Euro Travel - Package Reservation</title>
     <link rel="stylesheet" href="Reservation.css">
     <link rel="stylesheet" href="chat.css">
@@ -11,11 +8,14 @@
 </head>
 
 <body>
-    <!-- Navbar -->
     <div class="navbar">
-        <div class="nav-logo">Euro Travel</div>
+        <div class="nav-logo">
+            <img src="images/Euro-removebg-preview.png" alt="Logo">
+            <span class="nav-logofont">Euro Travel</span>
+        </div>
         <div class="nav-clock" id="navClock">00:00:00</div>
     </div>
+
 
     <!-- Background Slideshow -->
     <div class="background">
@@ -61,21 +61,6 @@
         </form>
     </div>
 
-    <!-- Floating Chat Icon -->
-    <div class="chat-icon" id="chatIcon">💬</div>
-
-    <!-- Chat Popup -->
-    <div class="chat-popup" id="chatPopup">
-        <div class="chat-header">
-            Hi , How Can I Help You ?
-            <span id="closeChat">✖</span>
-        </div>
-        <div class="chat-body" id="chatBody"></div>
-        <div class="chat-input-area">
-            <input type="text" id="chatInput" placeholder="Type a message...">
-            <button onclick="sendMessage()">Send</button>
-        </div>
-    </div>
 
     <!-- Footer -->
     <footer class="site-footer">
@@ -123,7 +108,6 @@
         </div>
     </footer>
 
-    <script src="Reservation.js"></script>
     <script src="Reservation.js"></script>
 </body>
 
