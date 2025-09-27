@@ -19,7 +19,6 @@ body {
 
 .main-header {
     background: rgb(10, 61, 98);
-    /* KEY CHANGE 1: Make the header fixed */
     position: fixed; 
     /* KEY CHANGE 2: Position it at the top */
     top: 0; 
@@ -86,30 +85,20 @@ body {
     display: block;
 }
 
-/* Style for the second line of text (Assuming <small> tag in HTML) */
-.main-nav ul li a small {
-    display: block; /* Force the small text onto a new line */
-    font-size: 10px;
-    font-weight: normal;
-    text-transform: none;
-    color: #555;
-    line-height: 1.2;
-}
 
 /* Active State Styles (for "DESTINATIONS") */
 .main-nav ul li.active {
-    /* Add the red highlight line beneath the active item */
-    border-bottom: 3px solid #f7c04a ; /* Red underline */
+    
+    border-bottom: 3px solid #f7c04a ; 
     padding-bottom: 12px;
 }
 
 .main-nav ul li.active a,
 .main-nav ul li.active a small {
-    color: #f7c04a ; /* Red text color for active link */
-}
+    color: #f7c04a ; }
 
 .main-nav ul li a:hover {
-    color: #f7c04a ; /* Darker red on hover */
+    color: #f7c04a ; 
     background: transparent;
 }
 
