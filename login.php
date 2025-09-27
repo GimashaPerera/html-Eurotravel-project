@@ -17,11 +17,11 @@ if ($conn->connect_error) {
 
 // Handle login
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    $username = $_POST['username'];
+    $Fullname = $_POST['Fullname'];
     $password = $_POST['password'];
 
     // Query to check if user exists
-    $sql = "SELECT username FROM registertbl WHERE username = '$username' AND password = '$password'";
+    $sql = "SELECT Fullname FROM registertbl WHERE Fullname = '$Fullname' AND password = '$password'";
     $result = $conn->query($sql);
 
     echo "<!DOCTYPE html><html><head><title>Login Result</title>
@@ -44,10 +44,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     </head><body>";
 
     if ($result && $result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-        $name = $row['username'];
-        echo "<h2>Hi!, $name</h2>";
+        // Show greeting and JS alert
+        echo "<script>alert('Hi $Fullname! Welcome to Euro Travel!');</script>";
+        echo "<h2>Hi!, $Fullname</h2>";
         echo "<p>Welcome back to Euro Travel!</p>";
+        echo "<p><a href='HomePage.html'> Go back to Home</a> </p>";
     } else {
         echo "<h2>Please register and become a member of Euro Travel today.</h2>";
         echo "<p><a href='Registration.html'>Go to Registration</a></p>";
