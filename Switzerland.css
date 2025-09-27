@@ -65,18 +65,15 @@ body {
 
 
 .nav-logo img {
-    height: 80px;
-    width: auto;
-    object-fit: contain;
+    font-weight: bold;
+    font-size: 30px;
 }
 
 .nav-logofont {
     font-weight: bold;
     font-size: 25px;
     margin-right: auto;
-    padding-left: 0px;
-    margin-top: 5px;
-    font-family: 'Times New Roman', Times, serif;
+    padding-left: 20px;
 
 }
 
@@ -90,7 +87,7 @@ body {
 }
 
 .hero-img {
-    width: 100%;
+    width: 1550px;
     height: 100%;
     object-fit: cover;
     filter: brightness(60%);
@@ -100,7 +97,7 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    width:  1500%;
     height: 100%;
     display: flex;
     justify-content: center;

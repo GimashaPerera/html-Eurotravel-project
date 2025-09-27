@@ -2,18 +2,19 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(135deg, #0A3D62, #1B4F72);
+  background: transparent;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  
 }
 
 .login-frame {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(54, 102, 132, 0.44);
   backdrop-filter: blur(10px);
   border-radius: 15px;
-  padding: 40px 30px;
+  padding: 40px 40px;
   width: 320px;
   box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
   color: #fff;
@@ -23,8 +24,8 @@ body {
 .login-frame h2 {
   margin-bottom: 25px;
   font-size: 24px;
-  font-weight: 600;
-  color: #00f0ff;
+  font-weight: 800;
+  color: #292d50;
 }
 
 .input-group {
@@ -36,7 +37,7 @@ body {
   display: block;
   margin-bottom: 6px;
   font-weight: 500;
-  color: #e0f7fa;
+  color:  #292d50;
 }
 
 .input-group input {
@@ -55,19 +56,19 @@ body {
 }
 
 button {
-  width: 100%;
+  width: 200px;
   padding: 12px;
-  background-color: #00f0ff;
-  color: #0A3D62;
+  background-color: #00c0cc;
   font-weight: bold;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  
+ 
 }
 
 button:hover {
-  background-color: #00c0cc;
+  background-color: #44547d;
 }
 
 #loginMessage {
