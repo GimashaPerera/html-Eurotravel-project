@@ -18,11 +18,11 @@ if ($conn->connect_error) {
 
 // Handle login
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    $username = $_POST['username'];
+    $Fullname = $_POST['Fullname'];
     $password = $_POST['password'];
 
     // Query to check if user exists
-    $sql = "SELECT * FROM registertbl WHERE username = '$username' AND password = '$password'";
+    $sql = "SELECT * FROM registertbl WHERE Fullname = '$Fullname' AND password = '$password'";
     $result = $conn->query($sql);
 
 
