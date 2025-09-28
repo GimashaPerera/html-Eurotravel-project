@@ -1,10 +1,11 @@
 <?php
-$servername = "localhost";
-$username = "root"; // update if needed
-$password = "";     // update if needed
-$dbname = "euro";   // your database name
+    $SERVER = "localhost";
+    $username ="root";
+    $password = "Gimasha@123";
+    $dbname = "eurotravel_db";
+  
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+  $conn = new mysqli($SERVER, $username, $password, $dbname);
 
 if ($conn->connect_error) {
     die("Database connection failed: " . $conn->connect_error);
@@ -22,7 +23,8 @@ $message= $_POST ['message'];
             VALUES ('$name', '$email', '$phone', '$message')";
 
     if ($conn->query($sql) === TRUE) {
-        echo "Message sent successfully! ✅";
+         header("Location: HomePage.html");
+        exit();
     } else {
         echo "Error: " . $conn->error;
     }
