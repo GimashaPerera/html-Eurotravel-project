@@ -1,17 +1,50 @@
-// ================================
-// NAVIGATION MENU
-// ================================
-const hamburger = document.getElementById("hamburger");
-const menu = document.getElementById("menu");
+// AOS Animations
+AOS.init({ duration: 1000, once: true });
 
-hamburger.addEventListener("click", () => {
-  menu.classList.toggle("active");
-  hamburger.classList.toggle("open");
+// Year Auto Update
+document.getElementById("year").textContent = new Date().getFullYear();
+
+// Contact Form Validation
+const form = document.getElementById("contactForm");
+if (form) {
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+    const msg = document.getElementById("formMsg");
+    if (!form.checkValidity()) {
+      msg.textContent = "⚠️ Please fill all fields correctly.";
+      msg.style.color = "red";
+    } else {
+      msg.textContent = "✅ Message sent successfully!";
+      msg.style.color = "green";
+      form.reset();
+    }
+  });
+}
+document.getElementById("contactForm").addEventListener("submit", function (e) {
+  e.preventDefault(); // stop default form submit
+
+  let formData = new FormData(this);
+
+  fetch("insert.php", {
+    method: "POST",
+    body: formData,
+  })
+    .then((response) => response.text())
+    .then((data) => {
+      document.getElementById("formMsg").innerText = data;
+      document.getElementById("formMsg").style.color =
+        data.includes("success") ? "green" : "red";
+      if (data.includes("success")) {
+        document.getElementById("contactForm").reset();
+      }
+    })
+    .catch((error) => {
+      document.getElementById("formMsg").innerText =
+        "Something went wrong. Try again!";
+      document.getElementById("formMsg").style.color = "red";
+    });
 });
 
-// ================================
-// SCROLL PROGRESS
-// ================================
 const progress = document.getElementById("progress");
 window.addEventListener("scroll", () => {
   const scrolled = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
@@ -19,7 +52,7 @@ window.addEventListener("scroll", () => {
 });
 
 // ================================
-// BACK TO TOP
+// BACK TO TOP BUTTON
 // ================================
 const toTop = document.getElementById("toTop");
 window.addEventListener("scroll", () => {
@@ -30,122 +63,48 @@ window.addEventListener("scroll", () => {
   }
 });
 
-// ================================
-// CHIP SELECTION
-// ================================
-const chips = document.querySelectorAll(".chip");
-const reasonInput = document.getElementById("reason");
+// Animate form elements on scroll
+document.addEventListener("DOMContentLoaded", () => {
+  const formSection = document.querySelector(".form-section");
 
-chips.forEach(chip => {
-  chip.addEventListener("click", () => {
-    chips.forEach(c => c.classList.remove("active"));
-    chip.classList.add("active");
-    reasonInput.value = chip.dataset.reason;
-  });
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          formSection.style.opacity = 1;
+          formSection.style.transform = "translateY(0)";
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+
+  formSection.style.opacity = 0;
+  formSection.style.transform = "translateY(40px)";
+  formSection.style.transition = "all 0.8s ease-out";
+
+  observer.observe(formSection);
 });
 
-// ================================
-// CONTACT FORM
-// ================================
-const contactForm = document.getElementById("contactForm");
-const toast = document.getElementById("toast");
+// Animate form elements on scroll
+document.addEventListener("DOMContentLoaded", () => {
+  const formSection = document.querySelector(".form-section");
 
-contactForm.addEventListener("submit", (e) => {
-  e.preventDefault();
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          formSection.style.opacity = 1;
+          formSection.style.transform = "translateY(0)";
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
 
-  if (!contactForm.checkValidity()) {
-    showToast("⚠️ Please fill all required fields correctly.");
-    return;
-  }
+  formSection.style.opacity = 0;
+  formSection.style.transform = "translateY(40px)";
+  formSection.style.transition = "all 0.8s ease-out";
 
-  showToast("✅ Message sent successfully!");
-  contactForm.reset();
-  chips.forEach(c => c.classList.remove("active"));
+  observer.observe(formSection);
 });
-
-function showToast(msg) {
-  toast.textContent = msg;
-  toast.classList.add("show");
-  setTimeout(() => toast.classList.remove("show"), 3000);
-}
-
-// ================================
-// NEWSLETTER FORM
-// ================================
-const nlForm = document.getElementById("nlForm");
-const nlMsg = document.getElementById("nlMsg");
-
-if (nlForm) {
-  nlForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const email = document.getElementById("nlEmail").value;
-
-    if (!email.includes("@")) {
-      nlMsg.textContent = "⚠️ Enter a valid email.";
-      nlMsg.style.color = "yellow";
-      return;
-    }
-
-    document.cookie = `newsletter=1;max-age=${60 * 60 * 24 * 30}`;
-    nlMsg.textContent = "🎉 Thanks for subscribing!";
-    nlMsg.style.color = "#fff";
-    nlForm.reset();
-  });
-}
-
-// ================================
-// COOKIE BANNER
-// ================================
-const cookieBar = document.getElementById("cookieBar");
-const acceptBtn = document.getElementById("acceptCookies");
-const rejectBtn = document.getElementById("rejectCookies");
-
-if (!document.cookie.includes("cookies_accepted")) {
-  cookieBar.classList.add("show");
-}
-
-acceptBtn.addEventListener("click", () => {
-  document.cookie = "cookies_accepted=1;max-age=" + 60 * 60 * 24 * 30;
-  cookieBar.classList.remove("show");
-});
-
-rejectBtn.addEventListener("click", () => {
-  cookieBar.classList.remove("show");
-});
-
-// ================================
-// FAQ AUTO ROTATION
-// ================================
-const faqItems = document.querySelectorAll(".faq p");
-let currentFaq = 0;
-
-setInterval(() => {
-  faqItems.forEach((f, i) => f.classList.toggle("visible", i === currentFaq));
-  currentFaq = (currentFaq + 1) % faqItems.length;
-}, 4000);
-
-// ================================
-// CLOUD PARALLAX
-// ================================
-const clouds = document.querySelectorAll(".cloud");
-
-window.addEventListener("scroll", () => {
-  const value = window.scrollY;
-  clouds.forEach((cloud, i) => {
-    let speed = (i + 1) * 0.2;
-    cloud.style.transform = `translateX(${value * speed}px)`;
-  });
-});
-
-// ================================
-// AOS INIT
-// ================================
-AOS.init({
-  duration: 1000,
-  once: true,
-});
-
-// ================================
-// YEAR AUTO UPDATE
-// ================================
-document.getElementById("year").textContent = new Date().getFullYear();
