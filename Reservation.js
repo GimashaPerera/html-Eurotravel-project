@@ -1,4 +1,4 @@
-// ---------------- Time----------------
+// -Time-
 function updateClock() {
     var now = new Date();
     var h = now.getHours();
@@ -14,7 +14,7 @@ function updateClock() {
 setInterval(updateClock, 1000);
 updateClock();
 
-// ---------------- Background Slideshow ----------------
+// -Background Slideshow -
 var slides = document.getElementsByClassName('bg-slide');
 var currentSlide = 0;
 slides[currentSlide].className += " active";
@@ -27,7 +27,7 @@ function nextSlide() {
 }
 setInterval(nextSlide, 5000);
 
-// ---------------- Calculate Cost ----------------
+// - Calculate Cost -
 const calcFields = ['toDate', 'fromDate', 'package', 'people'];
 calcFields.forEach(id => document.getElementById(id).addEventListener('input', calculateCost));
 
@@ -55,7 +55,7 @@ function calculateCost() {
         `Package: ${country}, Pax: ${people}, Days: ${days}, Total Cost: $${totalCost}`;
 }
 
-// ---------------- Form Submit ----------------
+// - Form Submit -
 
 form.addEventListener("submit", function (e) {
     if (
@@ -69,27 +69,8 @@ form.addEventListener("submit", function (e) {
     } else {
         alert("✅ Reservation Successful");
     }
-});
+});0
 
-function showPopup(message) {
-    let popup = document.createElement("div");
-    popup.textContent = message;
-    popup.style.position = "fixed";
-    popup.style.bottom = "20px";
-    popup.style.left = "50%";
-    popup.style.transform = "translateX(-50%)";
-    popup.style.background = "#2b6de8";
-    popup.style.color = "white";
-    popup.style.padding = "12px 20px";
-    popup.style.borderRadius = "10px";
-    popup.style.boxShadow = "0px 0px 10px rgba(0,0,0,0.5)";
-    popup.style.zIndex = "10000";
-    document.body.appendChild(popup);
-
-    setTimeout(() => {
-        popup.remove();
-    }, 1500);
-}
 
 
 
