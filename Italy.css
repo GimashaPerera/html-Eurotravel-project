@@ -16,7 +16,7 @@ body {
 /* ---------------------------------------------------- */
 /* --- Header Styles to Match the Image  --- */
 /* ---------------------------------------------------- */
-
+ 
 .main-header {
     background: rgb(10, 61, 98);
     position: fixed; 
@@ -391,7 +391,7 @@ li {
     margin: 40px auto;
     display: flex;
     align-items: center;
-    overflow: hidden;
+    
 }
 
 .carousel-track-container {
@@ -453,6 +453,14 @@ li {
 /* Responsive */
 .carousel-slide {
     min-width: 50%;
+}
+
+.right-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 0 auto;
 }
 
 /* Description */
