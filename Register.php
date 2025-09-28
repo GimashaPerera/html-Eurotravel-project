@@ -36,11 +36,11 @@ ini_set('display_errors', 1);
     
     if($conn->query($sql)===TRUE)
     {
-        
+                
         header("Location: Reservation.html");
         exit();
-
     }
+    
     else
     {
        echo "Error" . $conn->error; 
