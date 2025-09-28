@@ -1,147 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Discover Italy - Euro Travels</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f9f9f9;
-      color: #333;
-    }
-    header {
-      background: url('https://upload.wikimedia.org/wikipedia/commons/4/4e/Colosseo_2020.jpg') no-repeat center center/cover;
-      color: white;
-      text-align: center;
-      padding: 80px 20px;
-    }
-    header h1 {
-      font-size: 48px;
-      margin: 0;
-      text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
-    }
-    header p {
-      font-size: 20px;
-      margin-top: 10px;
-    }
-    section {
-      padding: 40px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-    h2 {
-      color: #b30000;
-      border-left: 5px solid #b30000;
-      padding-left: 10px;
-      margin-bottom: 20px;
-    }
-    .attractions, .food {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-    .card {
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      overflow: hidden;
-    }
-    .card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
-    .card h3 {
-      margin: 15px;
-      color: #333;
-    }
-    .card p {
-      margin: 0 15px 15px;
-      font-size: 14px;
-      line-height: 1.6;
-    }
-    footer {
-      background: #222;
-      color: white;
-      text-align: center;
-      padding: 20px;
-    }
-    .btn {
-      display: inline-block;
-      padding: 12px 20px;
-      margin-top: 20px;
-      background: #b30000;
-      color: white;
-      text-decoration: none;
-      border-radius: 6px;
-      transition: 0.3s;
-    }
-    .btn:hover {
-      background: #800000;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Italy Travel</title>
+    <link rel="stylesheet" href="Italy.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
+
 <body>
 
-  <header>
-    <h1>Discover Italy</h1>
-    <p>The land of history, art, fashion & cuisine</p>
-  </header>
+    <header class="main-header">
+        <div class="header-content">
+            <div class="logo">
+                <img src="images/Euro_Travels__4_-removebg-preview.png" alt="Euro Travel Logo" class="logo-image">
+                <span class="tagline">Discover Europe, Discover Yourself</span>
+            </div>
 
-  <section>
-    <h2>Top Attractions</h2>
-    <div class="attractions">
-      <div class="card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Colosseum_in_Rome%2C_Italy_-_April_2007.jpg" alt="Colosseum">
-        <h3>Colosseum, Rome</h3>
-        <p>Step back into history at the iconic Colosseum, the grand amphitheater of ancient Rome.</p>
-      </div>
-      <div class="card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/9/9d/Venice_Italy_Grand_Canal_2019.jpg" alt="Venice">
-        <h3>Venice Canals</h3>
-        <p>Enjoy a romantic gondola ride through the enchanting canals of Venice.</p>
-      </div>
-      <div class="card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/1/16/Florence_-_Duomo_2019.jpg" alt="Florence Cathedral">
-        <h3>Florence Cathedral</h3>
-        <p>Admire the Renaissance architecture and art at the magnificent Florence Cathedral.</p>
-      </div>
+            <nav class="main-nav">
+                <ul class="nav-links">
+                    <li><a href="homepage.html">HOME<br></a></li>
+                    <li class="active">
+                        <a href="reservation.html">DESTINATION<br></a>
+                    </li>
+                    <li><a href="aboutus.html">PACKAGES<br></a></li>
+                    <li><a href="register.html">ABOUT US<br></a></li>
+                    <li><a href="reservation.html">CONTACT US<br></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero-section">
+        <img src="images/Italy Colosseum.webp" class="hero-img" alt="Italy Colosseum">
+        <div class="hero-overlay">
+            <div class="hero-text">
+                <h1>Italy</h1>
+                <p>From historic ruins to sun-kissed coasts—art, pasta, wine, and breathtaking piazzas at every corner.</p>
+                <a href="package-reservation.html?country=Switzerland" class="btn btn-warning">Reserve a package</a>
+                <a href="contact.html?subject=Planning%20Switzerland" class="btn btn-outline">Talk to an expert</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="MidH">
+        <h2>Discover the Magic of Italy</h2>
     </div>
-  </section>
+    <hr style="width: 80%; margin: 10px auto; border: 1px solid #ddd;">
 
-  <section>
-    <h2>Italian Cuisine</h2>
-    <div class="food">
-      <div class="card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Recipe_pizza.jpg" alt="Pizza">
-        <h3>Pizza</h3>
-        <p>Originating from Naples, pizza is a must-try Italian classic loved worldwide.</p>
-      </div>
-      <div class="card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/5/58/Pasta_DSC03624.jpg" alt="Pasta">
-        <h3>Pasta</h3>
-        <p>From spaghetti to lasagna, Italian pasta dishes are a delightful culinary experience.</p>
-      </div>
-      <div class="card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Tiramisu_4.jpg" alt="Tiramisu">
-        <h3>Tiramisu</h3>
-        <p>A sweet treat made with coffee-soaked ladyfingers and mascarpone cream.</p>
-      </div>
+    <section class="description">
+        <div class="container1">
+            <p>
+                Italy is a feast for the senses—where history, art, and cuisine come alive. Wander through the romantic streets of Venice, admire Rome’s ancient landmarks, and soak in the rolling hills of Tuscany. From authentic pasta and gelato to world-class wines and vibrant piazzas, every moment is a celebration of Italian culture. Italy isn’t just a destination—it’s an experience that lingers in your heart long after you leave.
+            </p>
+        </div>
+    </section>
+
+
+
+    <div class="container">
+        <div class="left-column">
+            <div class="MidHeading">
+                <h2>Highlights</h2>
+            </div>
+
+            <br>
+            <br>
+            <ul>
+                <li><b>Rome & Vatican City:</b> Ancient ruins, iconic landmarks, and rich history.</li>
+                <li><b>Florence & Tuscany:</b> Renaissance art, charming streets, and rolling vineyards.</li>
+                <li><b>Venice:</b> Canals, gondola rides, and unique architecture.</li>
+                <li><b>Milan & Lake Como:</b> Fashion capital, lakeside beauty, and historic cathedrals.</li>
+                <li><b>Amalfi Coast & Cinque Terre:</b> Stunning coastal views, colorful villages, and seaside adventures.</li>
+            </ul>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div class="Midhead">
+                <h3>Sample 6-day Itinerary</h3>
+            </div>
+            <br>
+            <br>
+
+            <ol>
+                <li><b>Day 1 - Rome Arrival:</b> Explore Colosseum, Roman Forum, and enjoy a local dinner.</li>
+                <li><b>Day 2 - Vatican City & Rome:</b> St. Peter’s Basilica, Sistine Chapel, and Piazza Navona.</li>
+                <li><b>Day 3 - Florence:</b> Visit Uffizi Gallery, Duomo, and stroll along Ponte Vecchio.</li>
+                <li><b>Day 4 - Tuscany:</b> Wine tasting, countryside villages, and scenic drives.</li>
+                <li><b>Day 5 - Venice:</b> Gondola ride, St. Mark’s Basilica, and explore canals.</li>
+                <li><b>Day 6 - Milan & Lake Como:</b> Visit Milan Cathedral, stroll Lake Como, and departure.</li>
+            </ol>
+            <br>
+            <br>
+            <br>
+            <div class="lowhead">
+                <h3>Good to Know</h3>
+            </div>
+            <br>
+            <br>
+            <ul>
+                <li><b>Best time:</b> Apr-Jun & Sep-Oct for pleasant sightseeing, Dec-Feb for winter sports in the Alps.</li>
+                <li><b>Transport:</b> Extensive trains, high-speed rail, and scenic coastal drives.</li>
+                <li><b>Cuisine:</b> Pasta, pizza, gelato, and regional specialties.</li>
+            </ul>
+        </div>
+
+        <div class="right-column">
+            <div class="card">
+                <img src="images/Italy veni.jpg" alt="Pisa">
+                <div class="card-body">
+                    <h5>Popular Packages</h5>
+                    <ul>
+                        <li><b>Rome & Amalfi Coast Escape (5-7 nights)</b> – Ancient history, coastal views, and Italian cuisine.</li>
+                        <li><b>Tuscan & Florence Discovery (6-8 nights)</b>Tuscan & Florence Discovery (6-8 nights) – Renaissance art, vineyards, and charming towns.</li>
+                        <li><b>Italy Grand Tour (7-10 nights) </b>Italy Grand Tour (7-10 nights) – Rome, Venice, Florence, Milan, and scenic Italian landscapes.</li>
+                    </ul>
+                    <a href="package-reservation.html?country=Switzerland" class="btn btn-primary">Get a quote</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <h6>Trip Planning Tools</h6>
+                    <ul>
+                        <li><b>Italy Rail Pass options</b> – Travel conveniently across cities by high-speed trains.</li>
+                        <li><b>Guided cultural & countryside tours</b>– Explore historic sites, vineyards, and coastal towns.</li>
+                        <li><b>Family-friendly & accessible routes</b>– Activities and itineraries suitable for all ages. </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
-  </section>
 
-  <section style="text-align:center;">
-    <h2>Plan Your Trip</h2>
-    <p>Book your Italian adventure with Euro Travels and experience the beauty of Italy.</p>
-    <a href="register.html" class="btn">Book Now</a>
-  </section>
 
-  <footer>
-    <p>&copy; 2025 Euro Travels | Explore the World with Us</p>
-  </footer>
+    <div class="lowHeading">
+        <h2>Places To Visit </h2>
+        <p>_____________________________________________________________________________</p>
+    </div>
+    <br>
+    <br>
+    <section class="image-carousel">
+        <button class="arrow left-arrow">&#10094;</button>
+        <div class="carousel-track-container">
+            <ul class="carousel-track">
+                <li class="carousel-slide"><img src="images/Italy Colosseum 2.webp" alt="Image 1"></li>
+                <li class="carousel-slide"><img src="images/Italy Milan" alt="Image 2"></li>
+                <li class="carousel-slide"><img src="images/Italy Pisa" alt="Image 3"></li>
+                <li class="carousel-slide"><img src="images/Italy SPS.jpg" alt="Image 4"></li>
+                <li class="carousel-slide"><img src="images/Italt SPB.jpg" alt="Image 5"></li>
+                <li class="carousel-slide"><img src="images/Italy venice 2.jpg" alt="Image 6"></li>
+                <li class="carousel-slide"><img src="images/Italy TF.jpeg" alt="Image 7"></li>
+                <li class="carousel-slide"><img src="images/Italy Pic.jpeg" alt="Image 8"></li>
+                <li class="carousel-slide"><img src="images/Italy Lake como.jpg" alt="Image 9"></li>
+                <li class="carousel-slide"><img src="images/Italy Florence.jpg" alt="Image 10"></li>
+            </ul>
+        </div>
+        <button class="arrow right-arrow">&#10095;</button>
+    </section>
 
+
+
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-row">
+                <div class="footer-col">
+                    <h3>About Us</h3>
+                    <p>We bring you the best travel packages across Europe with unforgettable experiences and affordable
+                        prices.</p>
+                    <ul class="footer-social">
+                        <li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
+                        <li><a href="#"><span class="fab fa-twitter"></span></a></li>
+                        <li><a href="#"><span class="fab fa-instagram"></span></a></li>
+                        <li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Pages</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="#">Terms and Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <ul class="footer-contact">
+                        <li><a href="mailto:EuroTravel@gmail.com">EuroTravel@gmail.com</a></li>
+                        <li><a href="tel:+12222123819">+1 222 212 3819</a></li>
+                        <li>43 Raymouth Rd, London</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Euro Travel. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="Switzerland.js"></script>
 </body>
+
 </html>
