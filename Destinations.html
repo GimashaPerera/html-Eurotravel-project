@@ -4,13 +4,28 @@
   <meta charset="UTF-8" />
   <title>European Travel Destinations</title>
   <link rel="stylesheet" href="Destinations.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
 <body>
 
   <!-- Navbar -->
   <div class="navbar">
-    <div class="nav-logo">Euro Travel</div>
-    <div class="nav-clock" id="navClock">00:00:00</div>
+    <div class="nav-logo"><img src="images/Euro Travels (1).png" width="50px" height="50px"></div>
+        <div class="nav-logofont">Euro Travel</div>
+        <ul class="nav-links">
+            <li><a href="HomePage.html">Home</a></li>
+            <li><a href="aboutus.html">About</a></li>
+            <li><a href="Reservation.html">Packages</a></li>
+            
+            
+           <li> <a href="login.html"  class="btn btn-outline" >Login</a></li> 
+       <li> <a class="btn1 btn-warning1" href="Register.html">
+          <i class="bi bi-calendar-check me-1"></i>Sign Up</a></li> 
+            
+        </ul>
+     
+       
   </div>
 
   <!-- Header Section with Slideshow -->
@@ -23,8 +38,8 @@
     <div class="header-content">
       <h1>Explore Europe</h1>
       <div class="header-buttons">
-        <button onclick="location.href='index.html'">Go Back to Home</button>
-        <button onclick="location.href='reservation.html'">Reservations</button>
+        <button onclick="location.href='HomePage.html'">Go Back to Home</button>
+        <button onclick="location.href='Reservation.html'">Reservations</button>
       </div>
     </div>
   </header>
@@ -41,42 +56,85 @@
 
         <div class="destination">
           <img src="images/Switz.jpg" alt="Switzerland" />
-          <button onclick="location.href='switzerland-itinerary.html'">View Switzerland</button>
+          <button onclick="location='Switzerland.html'">View Switzerland</button>
         </div>
          <div class="destination">
           <img src="images/france.jpg" alt="France" />
-          <button onclick="location.href='france-itinerary.html'">View France</button>
+          <button onclick="location.href='France.html'">View France</button>
         </div>
         <div class="destination">
           <img src="images/italy.jpg" alt="Italy" />
-          <button onclick="location.href='italy-itinerary.html'">View Italy</button>
+          <button onclick="location.href='Italy.html'">View Italy</button>
         </div>
         <div class="destination">
           <img src="images/germany.jpg" alt="Germany" />
-          <button onclick="location.href='germany-itinerary.html'">View Germany</button>
+          <button onclick="location.href='Germany.html'">View Germany</button>
         </div>
         <div class="destination">
           <img src="images/spain.jpg" alt="Spain" />
-          <button onclick="location.href='spain-itinerary.html'">View Spain</button>
+          <button onclick="location.href='Spain.html'">View Spain</button>
         </div>
         <div class="destination">
           <img src="images/greece.jpg" alt="Greece" />
-          <button onclick="location.href='greece-itinerary.html'">View Greece</button>
+          <button onclick="location.href='Greece.html'">View Greece</button>
         </div>
         <div class="destination">
           <img src="images/port.jpg" alt="Portugal" />
-          <button onclick="location.href='portugal-itinerary.html'">View Portugal</button>
+          <button onclick="location.href='Protugal.html'">View Portugal</button>
         </div>
         <div class="destination">
           <img src="images/nether.jpg" alt="Netherlands" />
-          <button onclick="location.href='netherlands-itinerary.html'">View Netherlands</button>
+          <button onclick="location.href='Netherland.html'">View Netherlands</button>
         </div>
       </div>
     </div>
   </main>
 
-  <!-- Floating Bubbles Animation -->
-  <div id="bubble-container"></div>
+   <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-row">
+                <div class="footer-col">
+                    <h3>About Us</h3>
+                    <p>We bring you the best travel packages across Europe with unforgettable experiences.</p>
+                    <ul class="footer-social">
+                        <li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
+                        <li><a href="#"><span class="fab fa-twitter"></span></a></li>
+                        <li><a href="#"><span class="fab fa-instagram"></span></a></li>
+                        <li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Pages</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="#">Terms</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <ul class="footer-contact">
+                        <li><a href="mailto:EuroTravel@gmail.com">EuroTravel@gmail.com</a></li>
+                        <li><a href="tel:+12222123819">+1 222 212 3819</a></li>
+                        <li>43 Raymouth Rd, London</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Euro Travel. All Rights Reserved.</p>
+        </div>
+    </footer>
+    
 
   <!-- External JS -->
   <script src="Destinations.js"></script>
