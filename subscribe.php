@@ -1,37 +1,42 @@
 <?php
 // Database connection
 $servername = "localhost";
-$username   = "root";   // phpMyAdmin default
-$password   = "";       // leave blank if no password
-$dbname     = "test_db";
+$username = "root";  // your DB username
+$password = "";      // your DB password
+$dbname = "Europe";  // your database name
 
+// Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
+// Check connection
 if ($conn->connect_error) {
-    die("❌ Connection failed: " . $conn->connect_error);
+    die("Connection failed: " . $conn->connect_error);
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = trim($_POST["email"]);
 
-    if (!empty($email) && filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $stmt = $conn->prepare("INSERT INTO subscribers (email) VALUES (?)");
-        $stmt->bind_param("s", $email);
+if(isset($_POST['email'])){
+    $email = $_POST['email'];
 
-        if ($stmt->execute()) {
-            echo "<p style='color:green;'>✅ Thank you for subscribing, " . htmlspecialchars($email) . "!</p>";
-        } else {
-            if ($conn->errno == 1062) {
-                echo "<p style='color:orange;'>⚠️ You are already subscribed!</p>";
-            } else {
-                echo "<p style='color:red;'>❌ Error: " . $conn->error . "</p>";
-            }
-        }
+    // Check for duplicate emails
+    $stmt = $conn->prepare("SELECT id FROM subscribers WHERE email=?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $stmt->store_result();
 
-        $stmt->close();
+    if($stmt->num_rows > 0){
+        echo "You are already subscribed!";
     } else {
-        echo "<p style='color:red;'>❌ Invalid email address</p>";
+        $stmtInsert = $conn->prepare("INSERT INTO subscribers (email) VALUES (?)");
+        $stmtInsert->bind_param("s", $email);
+        if($stmtInsert->execute()){
+            echo "Thank you for subscribing!";
+        } else {
+            echo "Error: " . $stmtInsert->error;
+        }
+        $stmtInsert->close();
     }
+
+    $stmt->close();
 }
 
 $conn->close();

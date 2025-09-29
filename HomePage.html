@@ -101,7 +101,107 @@
       </form>
     </div>
     <div id="subMsg" class="sub-msg"></div>
-  </section>
+  </section> 
+<!---
+  <form action="db_connect.php" method="POST" id="student-form">
+          
+            <label for="email">E-mail:</label>
+            <textarea type="E-mail" name="email" required></textarea>
+            
+            <button type="submit">Register</button>
+
+        </form>
+    </div>
+  -->
+    <!-- Success message will be displayed here 
+    <div id="message-container"></div>
+
+    <script>
+        // Check if the URL has 'success=1' in the query string
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('success') === '1') {
+            document.getElementById('message-container').innerHTML = 
+                '<p class="success-message">Student registered successfully!</p>';
+        }
+    </script>
+  -->
+
+<!-- Popup CSS 
+<style>
+.popup-message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: none;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    z-index: 1000;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+.popup-success {
+    background-color: #4CAF50; /* Green */
+}
+
+.popup-error {
+    background-color: #f44336; /* Red */
+}
+</style>
+</head>
+<body>
+
+<h2>Subscribe to our Newsletter</h2>
+
+<form id="subscribeForm">
+    <input type="email" id="emailInput" name="email" placeholder="Enter your email" required>
+    <button type="submit">Subscribe</button>
+</form>
+
+<div id="message" class="popup-message"></div>
+-->
+<!-- AJAX Script 
+<script>
+document.getElementById('subscribeForm').addEventListener('submit', function(e) {
+    e.preventDefault(); // Prevent page reload
+
+    let email = document.getElementById('emailInput').value;
+    if(email === "") return;
+
+    let formData = new FormData();
+    formData.append('email', email);
+
+    fetch('subscribe.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+        let messageDiv = document.getElementById('message');
+        messageDiv.innerText = data;
+
+        // Set color based on message
+        if(data.toLowerCase().includes("thank")) {
+            messageDiv.className = "popup-message popup-success";
+        } else {
+            messageDiv.className = "popup-message popup-error";
+        }
+
+        messageDiv.style.display = 'block'; // Show popup
+        document.getElementById('emailInput').value = ''; // Clear input
+
+        setTimeout(() => {
+            messageDiv.style.display = 'none';
+        }, 3000);
+    })
+    .catch(error => console.error('Error:', error));
+});
+</script>
+
+-->
+
 
   <!-- Footer -->
   <footer class="site-footer">
@@ -148,6 +248,57 @@
     </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- COOKIES MODAL (Bootstrap) -->
+<div class="modal fade" id="cookieModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content cookie-card">
+      <div class="modal-body">
+        <div class="d-flex align-items-start gap-3">
+          <div class="cookie-emoji">🍪</div>
+          <div>
+            <h5 class="mb-2">Before you proceed with Euro Travel</h5>
+            <p class="mb-0 cookie-text">
+              We use cookies and tracking technologies to offer you a better browsing
+              experience, analyse site traffic, and improve our website.
+              By clicking “Accept Cookies”, you agree to our use of cookies as described
+              in our <a href="#" class="text-decoration-underline">privacy policy</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer justify-content-end gap-2">
+        <button type="button" class="btn btn-outline-light cookie-reject" data-bs-dismiss="modal">Reject Cookies</button>
+        <button type="button" class="btn btn-primary cookie-accept" id="acceptCookies">Accept Cookies</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS (for the modal only) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Tiny JS: cookies + year -->
+<script>
+  // footer year
+  document.getElementById('y').textContent = new Date().getFullYear();
+
+  // cookie consent
+  const key = 'et_cookie_consent';
+  const accepted = localStorage.getItem(key) === 'true';
+  const modalEl = document.getElementById('cookieModal');
+
+  if (!accepted) {
+    const m = new bootstrap.Modal(modalEl, {backdrop: 'static', keyboard: false});
+    m.show();
+  }
+
+  document.getElementById('acceptCookies').addEventListener('click', () => {
+    localStorage.setItem(key, 'true');
+    const m = bootstrap.Modal.getInstance(modalEl);
+    m.hide();
+  });
+</script>
+
 </body>
 </html>

@@ -23,7 +23,7 @@ body {
 .nav-links li a:hover { background: rgba(255,255,255,0.2); color: #FFD700; }
 .nav-actions .btn { margin-left: 10px; }
 
-/* ---------------- Hero Section ---------------- */
+
 .btn {
     padding: 10px 20px;
     border-radius: 5px;
@@ -33,7 +33,7 @@ body {
 }
 
 .btn-warning {
-    background: #f0ad4e;
+    background:#f0ad4e;
     color: rgb(0, 0, 0);
     border:  2px solid rgb(0, 0, 0);
     padding: 10px 20px;
@@ -132,9 +132,107 @@ body {
 .footer-social a:hover { background: #0A3D62; color: white; }
 .footer-bottom { text-align: center; padding: 12px; font-size: 13px; background: #f9f9f9; border-top: 1px solid #eee; }
 
+/* ---------- Bootstrap cookie modal theming ---------- */
+.cookie-card {
+  background: #0A3D62; 
+  color: #f3f3f3;
+  border-radius: 16px;
+  border: none;
+  padding: 20px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+  animation: slideUp 0.4s ease-out;
+}
+
+.cookie-emoji {
+  font-size: 32px;
+  line-height: 1;
+  margin-right: 6px;
+}
+
+.cookie-text {
+  font-size: 15px;
+  line-height: 1.6;
+}
+.cookie-text a {
+  color: #FFD700;
+  font-weight: 500;
+}
+.cookie-text a:hover {
+  color: #ffb700;
+  text-decoration: underline;
+}
+
+/* Buttons inside cookie modal */
+.cookie-accept {
+  background: #FFD700;
+  border: none;
+  color: #000;
+  font-weight: 600;
+  padding: 8px 20px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+.cookie-accept:hover {
+  background: #ffbf00;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.cookie-reject {
+  border: 1px solid #ccc;
+  background: transparent;
+  color: #eee;
+  font-weight: 500;
+  padding: 8px 20px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+.cookie-reject:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: #FFD700;
+  color: #FFD700;
+}
+
+
+.popup-message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: none;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    z-index: 1000;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+.popup-success {
+    background-color: #4CAF50; /* Green */
+}
+
+.popup-error {
+    background-color: #f44336; /* Red */
+}
+
+
+
+
+
+
+/* Subtle entry animation */
+@keyframes slideUp {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+
+
 /* Responsive */
 @media(max-width: 768px) {
   .dv-grid { grid-template-columns: 1fr; }
   .nav-links { display: none; }
   .footer-row { flex-direction: column; text-align: center; }
 }
+
