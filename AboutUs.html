@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>About Us - Euro Travel</title>
 
+  <link rel="icon" type="image/jpeg" href="images/TabLogo.jpg">
+  
   <link rel="stylesheet" href="Register.css">
   <link rel="stylesheet" href="AboutUs.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -15,19 +17,19 @@
   <header class="main-header">
     <div class="header-content">
       <div class="logo">
-        <img src="images/Euro_Travels__2_-removebg-preview.png" alt="Euro Travel Logo" class="logo-image">
-        <span class="tagline">DISCOVER EUROPE, DISCOVER YOURSELF</span>
+        <a href="HomePage.html">
+          <img src="images/Euro_Travels__4_-removebg-preview.png" alt="Euro Travel Logo" class="logo-image"> 
+          <span class="tagline">DISCOVER EUROPE, DISCOVER YOURSELF</span>
+        </a>
       </div>
 
       <nav class="main-nav">
         <ul class="nav-links">
-          <li><a href="Homepage.html">HOME</a></li>
-          
-          <li class="active"><a href="aboutus.html">ABOUT US</a></li>
-          
-          <li><a href="Reservation.html">PACKAGES</a></li>
-          <li><a href="contact.html?subject=Login">LOGIN</a></li>
-          <li><a href="HomePage.html">CONTACT</a></li>
+          <li><a href="homepage.html">HOME</a></li>
+          <li><a href="Destinations.html">DESTINATION</a></li>
+          <li><a href="reservation.html">PACKAGES</a></li>
+          <li class="active"><a href="aboutus.html">ABOUT</a></li>
+          <li><a href="reservation.html">CONTACT US</a></li>
         </ul>
       </nav>
     </div>
@@ -44,15 +46,40 @@
     </div>
   </section>
 
-
   <main class="container about-main">
+    
     <section id="about-intro" class="reveal">
       <h2>About Euro Travel</h2>
       <p class="muted">Euro Travel is a specialist travel company dedicated to crafting memorable, worry-free holidays across Europe. With a passionate team of travel consultants and strong local partnerships, we design personalised itineraries — whether it's a romantic getaway in Venice, a food and wine tour in Tuscany, or an activity-packed trip to the Alps.</p>
-
       <p>We combine years of industry experience with local knowledge to ensure each trip runs smoothly. Our consultants handle everything from flights and transfers to accommodations, guided tours and special requests so you can enjoy a seamless travel experience.</p>
     </section>
 
+    <section id="key-metrics" class="reveal">
+        <h3>Our Impact in Numbers</h3>
+        <div class="metrics-grid">
+            
+            <div class="metric-item lift reveal">
+                <span class="metric-number" data-target="12000">0</span>
+                <p class="metric-label">Happy Travelers</p>
+            </div>
+            
+            <div class="metric-item lift reveal">
+                <span class="metric-number" data-target="25">0</span>
+                <p class="metric-label">Countries Covered</p>
+            </div>
+            
+            <div class="metric-item lift reveal">
+                <span class="metric-number" data-target="150">0</span>
+                <p class="metric-label">Curated Packages</p>
+            </div>
+            
+            <div class="metric-item lift reveal">
+                <span class="metric-number" data-target="99">0</span>
+                <p class="metric-label">% Customer Satisfaction</p>
+            </div>
+        </div>
+    </section>
+    
     <section id="certification" class="reveal">
       <div class="cert-grid">
         <div class="cert-text">
@@ -71,44 +98,8 @@
         </div>
       </div>
     </section>
-
-    <section id="branches" class="reveal">
-      <h3>Branches & Network</h3>
-      <div class="branches-row">
-        <div class="branch-card lift">
-          <h4>Colombo</h4>
-          <p class="muted">Orion City, Colombo 9<br>colombo@eurotravels.lk</p>
-        </div>
-        <div class="branch-card lift">
-          <h4>Galle</h4>
-          <p class="muted">No. 12 Main Street, Galle<br>galle@eurotravels.lk</p>
-        </div>
-        <div class="branch-card lift">
-          <h4>Kandy</h4>
-          <p class="muted">12 Temple Rd, Kandy<br>kandy@eurotravels.lk</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="partners" class="reveal">
-      <h3>Our Partners</h3>
-      <div class="partners-row">
-        <img src="images/partner1.png" alt="partner 1">
-        <img src="images/partner2.png" alt="partner 2">
-        <img src="images/partner3.png" alt="partner 3">
-        <img src="images/partner4.png" alt="partner 4">
-      </div>
-
-      <div class="awards">
-        <h4>Awards & Recognition</h4>
-        <p class="muted">Recognised regionally for excellence in curated holidays and customer service.</p>
-      </div>
-    </section>
-
-    <section class="reveal">
-      <h3>About Our Company</h3>
-      <p class="muted">Founded by a team of travel experts, Euro Travel combines corporate reliability with small-team care. We focus on exceptional customer service and building long-term relationships with travellers and suppliers.</p>
-    </section>
+<b></b>
+<b></b>
 
     <section class="mvm reveal">
       <h3>Vision • Mission • Values</h3>
@@ -132,6 +123,43 @@
         </article>
       </div>
     </section>
+    
+    <section class="reveal">
+      <h3>About Our Company</h3>
+      <p class="muted">Founded by a team of travel experts, Euro Travel combines corporate reliability with small-team care. We focus on exceptional customer service and building long-term relationships with travellers and suppliers.</p>
+    </section>
+    
+    <section id="branches" class="reveal">
+      <h3>Branches & Network</h3>
+      <div class="branches-row">
+        <div class="branch-card lift">
+          <h4>Colombo</h4>
+          <p class="muted">Orion City, Colombo 9<br>colombo@eurotravels.lk</p>
+        </div>
+        <div class="branch-card lift">
+          <h4>Galle</h4>
+          <p class="muted">No. 12 Main Street, Galle<br>galle@eurotravels.lk</p>
+        </div>
+        <div class="branch-card lift">
+          <h4>Kandy</h4>
+          <p class="muted">12 Temple Rd, Kandy<br>kandy@eurotravels.lk</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="partners" class="reveal">
+      <h3>Our Partners</h3>
+      <div class="partners-row">
+        <img src="images/About us P1.svg" alt="partner 1">
+        <img src="images/About us P2.svg" alt="partner 2">
+        
+      </div>
+
+      <div class="awards">
+        <h4>Awards & Recognition</h4>
+        <p class="muted">Recognised regionally for excellence in curated holidays and customer service.</p>
+      </div>
+    </section>
 
     <section class="reveal">
       <div class="newsletter-card lift">
@@ -153,7 +181,7 @@
       </div>
     </section>
   </main>
-
+  
   <footer class="site-footer">
     <div class="footer-container">
       <div class="footer-row">

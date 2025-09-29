@@ -16,28 +16,29 @@ setSlidePosition();
 
 // Move to slide
 const moveToSlide = (index) => {
-    track.style.transform = 'translateX(-' + slides[index].style.left + ')';
+    const amountToMove = slideWidth * index; // use number instead of style.left string
+    track.style.transform = 'translateX(-' + amountToMove + 'px)';
     currentIndex = index;
 };
 
 // Next Button
 nextButton.addEventListener('click', () => {
     let nextIndex = currentIndex + 1;
-    if (nextIndex > slides.length - 3) nextIndex = 0;
+    if (nextIndex >= slides.length) nextIndex = 0; // loop back
     moveToSlide(nextIndex);
 });
 
 // Prev Button
 prevButton.addEventListener('click', () => {
     let prevIndex = currentIndex - 1;
-    if (prevIndex < 0) prevIndex = slides.length - 3;
+    if (prevIndex < 0) prevIndex = slides.length - 1; // loop back
     moveToSlide(prevIndex);
 });
 
 // Auto-slide
 setInterval(() => {
     let nextIndex = currentIndex + 1;
-    if (nextIndex > slides.length - 3) nextIndex = 0;
+    if (nextIndex >= slides.length) nextIndex = 0;
     moveToSlide(nextIndex);
 }, 3000);
 
@@ -45,4 +46,5 @@ setInterval(() => {
 window.addEventListener('resize', () => {
     slideWidth = slides[0].getBoundingClientRect().width;
     setSlidePosition();
+    moveToSlide(currentIndex); // stay on current slide
 });
