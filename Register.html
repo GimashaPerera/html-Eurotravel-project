@@ -94,9 +94,7 @@
       <input type="password" id="confirm-password" name="confirm-password" required />
 
       <button type="submit">Register</button>
-      <div class="success-message" id="successMessage"> 
-      ✅ Registration Successful (Simulated)
-    </div>
+
     </form>
 
 
@@ -104,20 +102,29 @@
   </div>
 
   <script>
-
+    //this is for backgroud image
     var slides = document.getElementsByClassName('bg-slide');
     var currentSlide = 0;
+    
     slides[currentSlide].className += " active";
 
-    function nextSlide() {
+    function nextSlide() 
+    {
       slides[currentSlide].className = slides[currentSlide].className.replace(" active", "");
       currentSlide++;
-      if (currentSlide >= slides.length) { currentSlide = 0; }
-      slides[currentSlide].className += " active";
+
+      if (currentSlide >= slides.length)
+       {
+         currentSlide = 0; 
+      }
+        slides[currentSlide].className += " active";
     }
     setInterval(nextSlide, 5000);
 
-    function validateForm() {
+
+
+    function validateForm()
+     {
       var Fullname=document.getElementById('Fullname').value.trim();
       var email = document.getElementById('email').value.trim();
       var password = document.getElementById('password').value;
@@ -125,21 +132,26 @@
       var confirmPassword = document.getElementById('confirm-password').value;
 
 
-      if (password !== confirmPassword) {
+      if (password !== confirmPassword) 
+      {
         alert("❌ Passwords do not match.");
         return false;
       }
 
       //email check
       var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
-      if (!emailPattern.test(email)) {
+
+      if (!emailPattern.test(email)) 
+      {
         alert("invalid email address");
         return false;
       }
 
-      //tel check
+      //telphone no check
       var telPattern = /^\d{10}$/;
-      if (!telPattern.test(tel)) {
+
+      if (!telPattern.test(tel))
+       {
         alert("telephone must be 10 Digits");
         return false;
       }
